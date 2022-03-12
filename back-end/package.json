@@ -1,0 +1,22 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "Requisições ao pokeApi com node e mysql",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davisralves/who_is_tha_pokemon.git"
+  },
+  "author": "Davi Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Davisralves/who_is_tha_pokemon/issues"
+  },
+  "homepage": "https://github.com/Davisralves/who_is_tha_pokemon#readme"
+}
