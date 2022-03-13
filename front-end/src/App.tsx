@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import './css/header.css';
 import {IpokemonObjects} from './interfaces/Pokemons';
 import Header from './components/Header';
 function App() {
@@ -18,11 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Who is that Pokemon ?</h2>
+      <h2>Quem é esse Pokémon?</h2>
       <Header/>
-      <span>Start</span>
-      <span>Pokemons</span>
-      { /* <Game /> */} 
     </div>);
 }
 
