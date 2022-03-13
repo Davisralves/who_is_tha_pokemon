@@ -9,7 +9,6 @@ function App() {
   useEffect( () => {
     const request = async () => {
       const response = await fetch("http://localhost:8000");
-      console.log(response);
       setMessage(response.status);
     }; request()}
     , [])
