@@ -16,7 +16,6 @@ const Pokemons_1 = __importDefault(require("../models/Pokemons"));
 const PokemonService = {
     requestPokemons: () => __awaiter(void 0, void 0, void 0, function* () {
         const first151Pokemons = yield Pokemons_1.default.fetchPokemons();
-        console.log(first151Pokemons);
         return first151Pokemons;
     })
 };
