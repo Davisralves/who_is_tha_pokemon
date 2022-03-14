@@ -9,7 +9,6 @@ import reportWebVitals from './reportWebVitals';
 import { render } from "react-dom";
 import HowToplay from "./components/HowToplay";
 import Pokedex from "./components/Pokedex";
-import Game from "./components/Game";
 
 const rootElement = document.getElementById("root");
 render(
@@ -17,7 +16,6 @@ render(
     <Routes>
       <Route path="/" element={<App/>} />
       <Route path="/comoJogar" element={<HowToplay />} />
-      <Route path="/jogo" element={<Game />} />
       <Route path="/pokedex" element={<Pokedex />} />
     </Routes>
   </BrowserRouter>,

@@ -6,7 +6,6 @@ export default function Header() {
     <header>
       <div className="headerDiv">
       <Link className="link" to="/comoJogar">Como Jogar</Link>
-      <Link className="link" to="/jogo">Jogar</Link>
       <Link className="link" to="/pokedex">Pokedex</Link>
       </div>
     </header>

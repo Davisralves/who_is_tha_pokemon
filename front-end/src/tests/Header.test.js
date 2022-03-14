@@ -7,12 +7,10 @@ describe("Testando elemento header", () => {
 	test("Os links do header estão sendo renderizados corretamente", () => {
 		renderWithRouter(<Header />);
 		const links = screen.getAllByRole("link");
-		expect(links).toHaveLength(3);
+		expect(links).toHaveLength(2);
 		const howToPlay = screen.getByText("Como Jogar");
-		const play = screen.getByText("Jogar");
 		const pokedex = screen.getByText("Pokedex");
 		expect(howToPlay).toBeInTheDocument();
-		expect(play).toBeInTheDocument();
 		expect(pokedex).toBeInTheDocument();
 	});
 
@@ -22,12 +20,6 @@ describe("Testando elemento header", () => {
       const howToPlay = screen.getByText("Como Jogar");
 			userEvent.click(howToPlay);
 			expect(screen.getByRole("heading", "Como jogar")).toBeInTheDocument();
-		});
-    test('O link "Jogar" redireciona para pagina correta', () => {
-			renderWithRouter(<App />);
-      const play = screen.getByText("Jogar");
-			userEvent.click(play);
-			expect(screen.getByRole("heading", "Jogar")).toBeInTheDocument();
 		});
     test('O link "Pokedex" redireciona para pagina correta', () => {
 			renderWithRouter(<App />);
