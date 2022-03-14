@@ -18,10 +18,10 @@ function App() {
     , []);
 
   return (
-    <div className="App">
-      <h2>Quem é esse Pokémon?</h2>
+    <div className='App'>
+      <h1 className='title'>Quem é esse Pokémon ?</h1>
       <Header/>
-      <button>Start</button>
+      <button className='button'>Start</button>
     </div>);
 }
 
