@@ -21,7 +21,7 @@ function App() {
     <div className='App'>
       <h1 className='title'>Quem é esse Pokémon ?</h1>
       <Header/>
-      <button className='button'>Start</button>
+      <button className='button'>Começar</button>
     </div>);
 }
 
