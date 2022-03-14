@@ -20,12 +20,13 @@ function App() {
     }; request()}
     , []);
 
+  const startButton = <button onClick={() => setGame(!gameOn)} className='button'>Começar</button>
+
   return (
     <div className='App'>
       <h1 className='title'>Quem é esse Pokémon ?</h1>
       <Header/>
-      <button onClick={() => setGame(!gameOn)} className='button'>Começar</button>
-      {gameOn ? <Game pokemons={ pokemons } isFetched={true} /> : <span />}
+      {gameOn ? <Game pokemons={ pokemons } isFetched={true} /> : startButton}
     </div>);
 }
 

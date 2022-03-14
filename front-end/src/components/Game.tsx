@@ -1,20 +1,21 @@
-import { useState } from "react";
-import { IpokemonObjects } from "../interfaces/Pokemons"
+import { useEffect, useState } from "react";
+import { IpokemonObjects } from "../interfaces/Pokemons";
+import PokemonCard from './PokemonCard';
 
 type Props = {
-  pokemons: IpokemonObjects;
-  isFetched: boolean;
+	pokemons: IpokemonObjects;
+	isFetched: boolean;
 };
 
-export default function Game({pokemons, isFetched}: Props) {
+export default function Game({ pokemons, isFetched }: Props) {
+	const loading = <h3>Loading...</h3>;
 
-  const [login, setLogin] = useState(false);
-  const loading = <h3>Loading...</h3>;
 
-  setLogin(isFetched);
-  return(
-    <div>
-      {login ? pokemons.map((pokemon) => <PokemonCard />) : loading}
-    </div>
-  )
+	return (
+		<div>
+			{isFetched
+				? pokemons.map((pokemon) => <PokemonCard pokemon={pokemon} />)
+				: loading}
+		</div>
+	);
 }
