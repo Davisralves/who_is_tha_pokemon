@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { IpokemonObjects } from "../interfaces/Pokemons";
-import PokemonCard from './PokemonCard';
+import Questions from './Questions'
 
 type Props = {
 	pokemons: IpokemonObjects;
 	isFetched: boolean;
 };
+
+
 
 const sortNumberFrom0To = (length: number): number => {
   const max = length;
@@ -17,12 +19,9 @@ export default function Game({ pokemons, isFetched }: Props) {
 	const loading = <h3>Loading...</h3>;
   const sortedNumber = sortNumberFrom0To(pokemons.length);
   const sortedPokemon = pokemons[sortedNumber]; 
-  const {name, type1, weight,} = sortedPokemon;
 	return (
 		<div>
-			{isFetched
-				? <Questions pokemon={sortedPokemon}/>
-				: loading}
+			{isFetched ? <Questions sortedPokemon={sortedPokemon} /> : loading}
 		</div>
 	);
 }
