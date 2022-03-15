@@ -7,10 +7,10 @@ type Props = {
 };
 
   const getResultMenssage = (gameResult: GameState, sortedPokemon: IpokemonObject) => {
-    if(gameResult === GameState.failed) {
+    if(gameResult === GameState.success) {
       return 'You Win!'
     } 
-    if(gameResult === GameState.success) {
+    if(gameResult === GameState.failed) {
       return `You lost ! The secret Pokémon was ${sortedPokemon.name}`
     }
   }
@@ -18,7 +18,7 @@ type Props = {
 export default function Result({GameState, sortedPokemon}: Props) {
   const text = getResultMenssage(GameState, sortedPokemon);
   const result = (<div>
-    <h5>text</h5>
+    <h5>{text}</h5>
   </div>);
   return (
     <div>

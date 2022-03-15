@@ -1,5 +1,6 @@
 import {IpokemonObject} from '../interfaces/Pokemons';
 import { useState } from 'react';
+import { GameState } from './Game';
 
 type Props = {
 	sortedPokemon: IpokemonObject;
@@ -20,8 +21,11 @@ export default function GameBody({sortedPokemon, endGame}: Props) {
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
     if(inputValue === sortedPokemon.name) {
-      
+      return endGame(GameState.success);
     }
+    if(attempts > 0) {
+      return setAttempts((actualAttempts) => actualAttempts - 1);
+    } return endGame(GameState.failed);
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

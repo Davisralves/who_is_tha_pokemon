@@ -28,8 +28,8 @@ export default function Game({ pokemons, isFetched }: Props) {
 
   const endGame = (gameResponse: GameState) => {
     if(gameResponse === GameState.success) {
-      setGameResult(GameState.success);
-    } setGameResult(GameState.failed);
+      return setGameResult(GameState.success);
+    } return setGameResult(GameState.failed);
   }
 
   const restartGame = (gameResponse: GameState) => {
