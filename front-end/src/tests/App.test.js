@@ -5,13 +5,13 @@ import App from "../App";
 describe("Testa funcionamento do app", () => {
   it('Titulo é renderizado corretamente', () => {
     renderWithRouter(<App/>);
-    const title = screen.getByRole('heading', {name: "Quem é esse Pokémon ?"});
+    const title = screen.getByRole('heading', {name: "Who is that Pokemon ?"});
     expect(title).toBeInTheDocument();
   })
 
   it('Botão começar é renderizado corretamente', () => {
     renderWithRouter(<App/>);
-    const startButton = screen.getByRole('button', {name: 'Começar'});
+    const startButton = screen.getByRole('button', {name: 'Start'});
     expect(startButton).toBeInTheDocument();
   })
 });
