@@ -20,20 +20,21 @@ const getPokemonsDetailsPromises = (first151Pokemons) => __awaiter(void 0, void 
         return yield pokemonsDetails.json();
     }));
 });
-const filterPokemonInfo = (pokemonsInfo) => (pokemonsInfo.map((pokemonDetail) => {
-    const { name, types, height, weight } = pokemonDetail.value;
+const filterPokemonInfo = (pokemonsInfo) => pokemonsInfo.map((pokemonDetail) => {
+    const { name, types, height, weight, sprites: { other: { dream_world: { front_default: img }, }, }, } = pokemonDetail.value;
     console.log(types[0].type.name);
     const pokemonObject = {
         name,
         type1: types[0].type.name,
         height,
         weight,
+        img,
     };
     if (types[1]) {
         pokemonObject.type2 = types[1].type.name;
     }
     return pokemonObject;
-}));
+});
 const PokemonModel = {
     fetchPokemons: () => __awaiter(void 0, void 0, void 0, function* () {
         const first151Pokemons = yield fetchFirst151Pokemons();
