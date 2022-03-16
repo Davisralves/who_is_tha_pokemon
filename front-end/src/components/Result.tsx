@@ -1,6 +1,5 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { GameState } from "../helpers/enums";
-import { Link } from "react-router-dom";
 
 type Props = {
 	GameState: GameState;

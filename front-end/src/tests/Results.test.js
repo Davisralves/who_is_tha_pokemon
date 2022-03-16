@@ -1,8 +1,6 @@
 import { screen } from "@testing-library/react";
 import renderWithRouter from "../helpers/renderWithRouter";
-import Header from "../components/Header";
 import Result from "../components/Result";
-import userEvent from "@testing-library/user-event";
 import {GameState} from '../helpers/enums';
 import pokemonDefaulObject from '../helpers/Pokemons';
 
