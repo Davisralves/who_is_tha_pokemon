@@ -31,7 +31,7 @@ export default function Game({ pokemons, isFetched }: Props) {
 	return (
 		<div>
 			{isFetched ? (
-				<GameBody sortedPokemon={sortedPokemon} endGame={endGame} />
+				<GameBody  pokemons={pokemons} sortedPokemon={sortedPokemon} endGame={endGame}  GameStatus={gameResult} />
 			) : (
 				loading
 			)}

@@ -29,7 +29,7 @@ function App() {
 		<button
 			onClick={() => setGame(!gameOn)}
 			className="button"
-			disabled={!fetched}
+			disabled={false} // alterar para !fetched
 		>
 			Start
 		</button>
