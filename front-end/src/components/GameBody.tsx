@@ -6,19 +6,16 @@ type Props = {
 	pokemons: IpokemonObjects;
 	sortedPokemon: IpokemonObject;
 	endGame: Function;
-	GameStatus: GameState;
 };
 
 export default function GameBody({
 	pokemons,
 	sortedPokemon,
 	endGame,
-	GameStatus,
 }: Props) {
 	const [attempts, setAttempts] = useState(5);
 	const [inputValue, setInputValue] = useState("");
 	const [disableButton, setDisableButton] = useState(false);
-	const [enableTips, setEnableTips] = useState(false);
 	const [tryedPokemon, setTryedPokemon] = useState(pokemons[0]);
 
 	console.log(pokemons);
@@ -34,8 +31,6 @@ export default function GameBody({
 			return endGame(GameState.success);
 		}
 		if (attempts > 1) {
-			console.log(attempts);
-			setEnableTips(true);
 			return setAttempts((actualAttempts) => actualAttempts - 1);
 		}
 		setAttempts(0);
@@ -43,8 +38,14 @@ export default function GameBody({
 		return endGame(GameState.failed);
 	};
 
+  const checkTypedPokemon = () =>  {
+    if(!pokemons.some(({ name }) => name === inputValue)) {
+      return true;
+    } return false;
+  }
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
+    checkTypedPokemon();
 	};
 
 	const checkIfIsEqual = (value1: string | number, value2: string | number) =>
@@ -109,13 +110,8 @@ export default function GameBody({
 				<label htmlFor={name}>Name: </label>
 				<input onChange={(e) => handleChange(e)} id={name} type="text" />
 				<button
-					disabled={
-						!(
-							pokemons.some(({ name }) => name === inputValue) &&
-							GameStatus === GameState.inProgress
-						)
-					}
-					onClick={(event) => handleSubmit(event)} // config end game to do right
+					disabled={ checkTypedPokemon() || disableButton }
+					onClick={(event) => handleSubmit(event)}
 				>
 					Submit
 				</button>

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { IpokemonObjects } from "../interfaces/Pokemons";
 import GameBody from "./GameBody";
 import Result from "./Result";
@@ -31,7 +31,7 @@ export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 	return (
 		<div>
 			{isFetched ? (
-				<GameBody  pokemons={pokemons} sortedPokemon={sortedPokemon} endGame={endGame}  GameStatus={gameResult} />
+				<GameBody  pokemons={pokemons} sortedPokemon={sortedPokemon} endGame={endGame} />
 			) : (
 				loading
 			)}

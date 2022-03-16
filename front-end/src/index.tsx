@@ -9,7 +9,6 @@ import reportWebVitals from './reportWebVitals';
 import { render } from "react-dom";
 import HowToplay from "./components/HowToplay";
 import Pokedex from "./components/Pokedex";
-import Game from "./components/Game";
 
 const rootElement = document.getElementById("root");
 render(
