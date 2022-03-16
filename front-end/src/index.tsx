@@ -9,16 +9,17 @@ import reportWebVitals from './reportWebVitals';
 import { render } from "react-dom";
 import HowToplay from "./components/HowToplay";
 import Pokedex from "./components/Pokedex";
+import Game from "./components/Game";
 
 const rootElement = document.getElementById("root");
 render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App/>} />
-      <Route path="/comoJogar" element={<HowToplay />} />
-      <Route path="/pokedex" element={<Pokedex />} />
-    </Routes>
-  </BrowserRouter>,
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App/>} />
+        <Route path="/HowToplay" element={<HowToplay />} />
+        <Route path="/Pokedex" element={<Pokedex />} />
+      </Routes>
+    </BrowserRouter>,
   rootElement
 );
 

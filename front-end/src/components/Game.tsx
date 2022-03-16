@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { IpokemonObjects } from "../interfaces/Pokemons";
 import GameBody from "./GameBody";
 import Result from "./Result";
 import { GameState } from "../helpers/enums";
-
 type Props = {
 	pokemons: IpokemonObjects;
 	isFetched: boolean;
+  setGameOn: Function;
 };
 
 const sortNumberFrom0To = (length: number): number => {
@@ -14,7 +14,7 @@ const sortNumberFrom0To = (length: number): number => {
 	return Math.round(Math.random() * max);
 };
 
-export default function Game({ pokemons, isFetched }: Props) {
+export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 	const [gameResult, setGameResult] = useState(GameState.inProgress);
 
 	const endGame = (gameResponse: GameState) => {
@@ -36,6 +36,7 @@ export default function Game({ pokemons, isFetched }: Props) {
 				loading
 			)}
 			<Result GameState={gameResult} sortedPokemon={sortedPokemon} />
+      {gameResult === GameState.inProgress ? <span/> : <button onClick={() => setGameOn(false)}>Home</button>}
 		</div>
 	);
 }

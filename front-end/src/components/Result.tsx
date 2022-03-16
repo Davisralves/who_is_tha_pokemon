@@ -1,5 +1,6 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { GameState } from "../helpers/enums";
+import { Link } from "react-router-dom";
 
 type Props = {
 	GameState: GameState;
@@ -25,5 +26,5 @@ export default function Result({ GameState, sortedPokemon }: Props) {
 			<h5>{text}</h5>
 		</div>
 	);
-	return <div>{GameState ? result : <span data-testid="empty-span"/>}</div>;
+	return <div>{GameState ? result : <span data-testid="empty-span" />}</div>;
 }

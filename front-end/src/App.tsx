@@ -39,7 +39,7 @@ function App() {
 		<div className="App">
 			<h1 className="title">Who is that Pokemon ?</h1>
 			{gameOn ? <span /> : <Header />}
-			{gameOn ? <Game pokemons={pokemons} isFetched={fetched} /> : startButton}
+			{ gameOn ? <Game pokemons={pokemons} isFetched={fetched} setGameOn={setGame}/> : startButton }
 		</div>
 	);
 }
