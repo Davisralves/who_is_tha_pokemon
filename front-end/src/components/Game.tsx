@@ -31,7 +31,6 @@ export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 		const sortedNumber = sortNumberFrom0To(pokemons.length);
 		const sortedPokemon = pokemons[sortedNumber];
 		setSortedPokemon(sortedPokemon);
-		console.log(sortedPokemon);
 	}, []);
 
 	const loading = <h3>Loading...</h3>;
@@ -51,7 +50,9 @@ export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 			{gameResult === GameState.inProgress ? (
 				<span />
 			) : (
-				<button  className="submitButton" onClick={() => setGameOn(false)}>Home</button>
+				<button className="submitButton" onClick={() => setGameOn(false)}>
+					Home
+				</button>
 			)}
 		</div>
 	);

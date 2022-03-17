@@ -1,5 +1,5 @@
 import { IpokemonObject, IpokemonObjects } from "../interfaces/Pokemons";
-import PokedexHeader from './PokedexHeader';
+import PokedexHeader from "./PokedexHeader";
 import PokemonCard from "./PokemonCard";
 import { useLocation } from "react-router-dom";
 import "../css/pokedex.css";
@@ -18,7 +18,7 @@ export default function Pokedex() {
 	return (
 		<main className="pokedex">
 			<h1 className="title">Pokedex</h1>
-      <PokedexHeader />
+			<PokedexHeader />
 			<section className="pokedex-main-section">
 				{pokemons ? (
 					pokemons.map((pokemon: IpokemonObject) => (

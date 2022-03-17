@@ -9,7 +9,7 @@ const pokemonDefaulObject: IpokemonObjects = [
   },
   {
     name: 'bulbassauro',
-    type1: 'eletric',
+    type1: 'grass',
     height: '0,7m',
     weight: '6,9kg',
     img: 'null'

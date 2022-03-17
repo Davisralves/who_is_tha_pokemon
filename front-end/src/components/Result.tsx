@@ -1,6 +1,6 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { GameState } from "../helpers/enums";
-import '../css/game.css';
+import "../css/game.css";
 
 type Props = {
 	GameState: GameState;

@@ -14,7 +14,7 @@ function App() {
 	useEffect(() => {
 		const request = async () => {
 			try {
-				const response = await fetch("http://localhost:8000/");
+				const response = await fetch(`http://${process.env.REACT_APP_BACK_END_PORT}/`);
 				const pokemons = (await response.json()) as IpokemonObjects;
 				setPokemons(pokemons);
 				setFetched(true);
@@ -39,7 +39,11 @@ function App() {
 		<div className="App">
 			<h1 className="title">Who is that Pokemon ?</h1>
 			{gameOn ? <span /> : <Header pokemons={pokemons} />}
-			{ gameOn ? <Game pokemons={pokemons} isFetched={fetched} setGameOn={setGame}/> : startButton }
+			{gameOn ? (
+				<Game pokemons={pokemons} isFetched={fetched} setGameOn={setGame} />
+			) : (
+				startButton
+			)}
 		</div>
 	);
 }
