@@ -1,5 +1,6 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { GameState } from "../helpers/enums";
+import '../css/game.css';
 
 type Props = {
 	GameState: GameState;
@@ -22,7 +23,7 @@ export default function Result({ GameState, sortedPokemon }: Props) {
 	const text = getResultMenssage(GameState, sortedPokemon);
 	const result = (
 		<div>
-			<h5>{text}</h5>
+			<h5 className="default-yellow-case">{text}</h5>
 		</div>
 	);
 	return <div>{GameState ? result : <span data-testid="empty-span" />}</div>;
