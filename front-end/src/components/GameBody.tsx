@@ -3,6 +3,7 @@ import { useState } from "react";
 import { GameState } from "../helpers/enums";
 import PokemonCard from './PokemonCard';
 import '../css/gamebody.css';
+import CompareTable from "./CompareTable";
 
 type Props = {
 	pokemons: IpokemonObjects;
@@ -26,13 +27,14 @@ export default function GameBody({
 	) => {
 		event.preventDefault();
 		setTryedPokemon(
-			pokemons.find(({ name }) => name === inputValue) as IpokemonObject
-		);
-		if (inputValue === sortedPokemon.name) {
-			setDisableButton(true);
-			return endGame(GameState.success);
-		}
-		if (attempts > 1) {
+			pokemons.find(({ name }) => name === inputValue.toLocaleLowerCase()) as IpokemonObject
+      );
+      if (inputValue === sortedPokemon.name) {
+        setDisableButton(true);
+        setAttempts((actualAttempts) => actualAttempts - 1);
+        return endGame(GameState.success);
+      }
+    if (attempts > 1) {
 			return setAttempts((actualAttempts) => actualAttempts - 1);
 		}
 		setAttempts(0);
@@ -41,7 +43,7 @@ export default function GameBody({
 	};
 
   const checkTypedPokemon = () =>  {
-    if(!pokemons.some(({ name }) => name === inputValue)) {
+    if(!pokemons.some(({ name }) => name === inputValue.toLocaleLowerCase())) {
       return true;
     } return false;
   }
@@ -49,72 +51,23 @@ export default function GameBody({
 		setInputValue(event.target.value);
     checkTypedPokemon();
 	};
-
-	const checkIfIsEqual = (value1: string | number, value2: string | number) =>
-		value1 === value2;
-
-	const printTheDiferenceOfValues = (
-		value1: number,
-		value2: number
-	): string => {
-		switch (true) {
-			case value1 > value2:
-				return "Higher";
-			case value1 === value2:
-				return "Right";
-			case value1 < value2:
-				return "Lower";
-			default:
-				return "";
-		}
-	};
-
-	const { name, type1, weight, height } = sortedPokemon;
-	const type2 = sortedPokemon.type2 || "None";
 	const pokemonTable = (
 		<div className="pokemon-table">
-      <div className="table">
-			<p>| Characteristic | Result |</p>
-			<p>
-				| Type 1 |{" "}
-				{checkIfIsEqual(type1, tryedPokemon.type1) ? "Right" : "Wrong"} |
-			</p>
-			<p>
-				| Type 2 |{" "}
-				{checkIfIsEqual(type2, tryedPokemon.type2 || "None")
-					? "Right"
-					: "Wrong"}{" "}
-				|
-			</p>
-			<p>
-				| Height |{" "}
-				{printTheDiferenceOfValues(
-					parseInt(height),
-					parseInt(tryedPokemon.height)
-				)}{" "}
-				|
-			</p>
-			<p>
-				| Weight |{" "}
-				{printTheDiferenceOfValues(
-					parseInt(weight),
-					parseInt(tryedPokemon.weight)
-				)}{" "}
-				|
-			</p>
-      </div>
+      {<CompareTable tryedPokemon={tryedPokemon} sortedPokemon={sortedPokemon} />}
+      <div className="table"></div>
       { tryedPokemon ? <PokemonCard pokemon ={tryedPokemon}/> : <span />}
 		</div>
 	);
 	return (
 		<section>
 			<div>
-				<h5>{`Remaining attempts: ${attempts} `}</h5>
+				<h5 className='default-yellow-case'>{`Remaining attempts: ${attempts} `}</h5>
 			</div>
 			<form>
-				<label htmlFor={name}>Name: </label>
-				<input onChange={(e) => handleChange(e)} id={name} type="text" />
+				<label className="default-yellow-case" htmlFor='pokemonInput'>Name: </label>
+				<input className="submit-input" onChange={(e) => handleChange(e)} id='pokemonInput' type="text" />
 				<button
+          className="submitButton"
 					disabled={ checkTypedPokemon() || disableButton }
 					onClick={(event) => handleSubmit(event)}
 				>
