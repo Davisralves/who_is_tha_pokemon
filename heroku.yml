@@ -2,4 +2,3 @@ build:
   docker:
     front-end: Dockerfile
     back-end: Dockerfile
-run: "docker compose up"
