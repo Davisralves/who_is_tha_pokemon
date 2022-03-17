@@ -17,6 +17,6 @@ const PokemonService = {
     requestPokemons: () => __awaiter(void 0, void 0, void 0, function* () {
         const first151Pokemons = yield Pokemons_1.default.fetchPokemons();
         return first151Pokemons;
-    })
+    }),
 };
 exports.default = PokemonService;

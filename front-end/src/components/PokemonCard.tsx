@@ -1,12 +1,12 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import "../css/pokemonCard.css";
+import {capitalizeFirstLetter} from '../helpers/Pokemons';
+
 type Props = {
 	pokemon: IpokemonObject;
+  key?:number
 };
 
-const capitalizeFirstLetter = (value: string) => {
-	return value.charAt(0).toUpperCase() + value.slice(1);
-};
 
 export default function PokemonCard({ pokemon }: Props) {
 	const { name, type1, height, weight, img } = pokemon;
@@ -16,7 +16,7 @@ export default function PokemonCard({ pokemon }: Props) {
 			<div className="card-status">
 				<div>Name: {capitalizedName}</div>
 				<div>Height: {height}</div>
-				<div>weight: {weight}</div>
+				<div>Weight: {weight}</div>
 				<div className="card-types">
 					<span className="type">{type1}</span>
 					{pokemon.type2 ? (

@@ -21,8 +21,8 @@ export default function Pokedex() {
 			<PokedexHeader />
 			<section className="pokedex-main-section">
 				{pokemons ? (
-					pokemons.map((pokemon: IpokemonObject) => (
-						<PokemonCard pokemon={pokemon} />
+					pokemons.map((pokemon: IpokemonObject, index: number) => (
+						<PokemonCard pokemon={pokemon} key={index} />
 					))
 				) : (
 					<span>Loading</span>

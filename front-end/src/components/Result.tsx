@@ -1,5 +1,6 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { GameState } from "../helpers/enums";
+import { capitalizeFirstLetter } from "../helpers/Pokemons";
 import "../css/game.css";
 
 type Props = {
@@ -15,7 +16,9 @@ const getResultMenssage = (
 		return "You Win!";
 	}
 	if (gameResult === GameState.failed) {
-		return `You lost ! The secret Pokémon was ${sortedPokemon.name}`;
+		return `You lost ! The secret Pokémon was ${capitalizeFirstLetter(
+			sortedPokemon.name
+		)}`;
 	}
 };
 

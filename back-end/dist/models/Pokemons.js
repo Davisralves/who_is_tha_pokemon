@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const fetch = require("node-fetch");
 const fetchFirst151Pokemons = () => __awaiter(void 0, void 0, void 0, function* () {
-    const pokemons = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+    const pokemons = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
     return yield pokemons.json();
 });
 const getPokemonsDetailsPromises = (first151Pokemons) => __awaiter(void 0, void 0, void 0, function* () {

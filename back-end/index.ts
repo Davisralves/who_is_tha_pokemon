@@ -12,5 +12,5 @@ const { PORT } = process.env;
 app.get("/", requestPokemons);
 
 app.listen(PORT, () => {
-	console.log(`Server is running at http://localhost:${PORT}`);
+	console.log(`Server is running at http://localhost:${PORT || 3000}`);
 });
