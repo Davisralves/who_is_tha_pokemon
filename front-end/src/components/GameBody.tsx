@@ -1,6 +1,8 @@
 import { IpokemonObject, IpokemonObjects } from "../interfaces/Pokemons";
 import { useState } from "react";
 import { GameState } from "../helpers/enums";
+import PokemonCard from './PokemonCard';
+import '../css/gamebody.css';
 
 type Props = {
 	pokemons: IpokemonObjects;
@@ -70,7 +72,8 @@ export default function GameBody({
 	const { name, type1, weight, height } = sortedPokemon;
 	const type2 = sortedPokemon.type2 || "None";
 	const pokemonTable = (
-		<span>
+		<div className="pokemon-table">
+      <div className="table">
 			<p>| Characteristic | Result |</p>
 			<p>
 				| Type 1 |{" "}
@@ -99,7 +102,9 @@ export default function GameBody({
 				)}{" "}
 				|
 			</p>
-		</span>
+      </div>
+      { tryedPokemon ? <PokemonCard pokemon ={tryedPokemon}/> : <span />}
+		</div>
 	);
 	return (
 		<section>

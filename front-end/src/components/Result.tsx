@@ -23,7 +23,6 @@ export default function Result({ GameState, sortedPokemon }: Props) {
 	const result = (
 		<div>
 			<h5>{text}</h5>
-      <img alt="Pokemon" src={sortedPokemon.img} />
 		</div>
 	);
 	return <div>{GameState ? result : <span data-testid="empty-span" />}</div>;

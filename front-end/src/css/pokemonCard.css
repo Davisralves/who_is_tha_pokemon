@@ -4,7 +4,6 @@
 }
 
 .card-main {
-  border: solid;
   height: 170px;
   width: 250px;
   margin-top: 30px;
@@ -14,7 +13,7 @@
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-evenly;
-  box-shadow: 0 4px 8px 0 #ffcb05;
+  box-shadow: 0 4px 8px 0 #ffcd059a;
   transition: 0.3s; 
   background-color: aliceblue;
   font-family: "helvetica neue", Helvetica, Verdana, sans-serif;

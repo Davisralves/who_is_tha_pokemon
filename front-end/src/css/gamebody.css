@@ -1,0 +1,9 @@
+.pokemon-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  margin: 20px;
+}
