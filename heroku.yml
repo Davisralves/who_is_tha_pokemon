@@ -1,5 +1,2 @@
-build:
-  docker:
-    front-end: front-end/Dockerfile
-    back-end: back-end/Dockerfile
+build: .
   run: docker compose up
