@@ -7,7 +7,7 @@ import {
 } from "../interfaces/Pokemons";
 
 const fetchFirst151Pokemons = async () => {
-	const pokemons = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
+	const pokemons = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
 	return await pokemons.json();
 };
 
@@ -42,7 +42,7 @@ const filterPokemonInfo = (
 				type1: types[0].type.name,
 				height,
 				weight,
-        img,
+				img,
 			};
 			if (types[1]) {
 				pokemonObject.type2 = types[1].type.name;

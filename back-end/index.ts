@@ -1,15 +1,16 @@
-import express from 'express';
-import requestPokemons from './controller/requestPokemons';
+import express from "express";
+import requestPokemons from "./controller/requestPokemons";
+import 'dotenv/config';
 
-const cors = require("cors")
+const cors = require("cors");
 const app = express();
 
-app.use(cors())
+app.use(cors());
 
-const PORT = 8000;
+const { PORT } = process.env;
 
-app.get('/', requestPokemons);
+app.get("/", requestPokemons);
 
 app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+	console.log(`Server is running at http://localhost:${PORT}`);
 });
