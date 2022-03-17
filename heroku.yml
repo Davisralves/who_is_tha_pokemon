@@ -1,3 +1,5 @@
 build:
   docker:
-    run: docker compose up
+    front-end: front-end/Dockerfile
+    back-end: back-end/Dockerfile
+  run: docker compose up
