@@ -1,3 +1,5 @@
 build:
   docker:
-    web: docker compose up
+    front-end: Dockerfile
+    back-end: Dockerfile
+run: docker compose up
