@@ -14,7 +14,7 @@ function App() {
 	useEffect(() => {
 		const request = async () => {
 			try {
-				const response = await fetch(`http://${process.env.DOCKHERO_HOST}/`);
+				const response = await fetch(process.env.REACT_APP_API_URL as string);
 				const pokemons = (await response.json()) as IpokemonObjects;
 				setPokemons(pokemons);
 				setFetched(true);
