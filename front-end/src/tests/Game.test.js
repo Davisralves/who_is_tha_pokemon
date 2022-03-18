@@ -2,8 +2,9 @@ import { screen } from "@testing-library/react";
 import renderWithRouter from "../helpers/renderWithRouter";
 import Game from '../components/Game';
 import pokemonDefaulObject from '../helpers/Pokemons';
+import { fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
+import {sortNumberFrom0To}  from '../components/Game';
 describe("Testa funcionamento do Game", () => {
   test('Se a mensagem "loading" aparece caso não exista reposta da api', () => {
     renderWithRouter(
