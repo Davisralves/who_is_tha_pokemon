@@ -57,7 +57,8 @@ describe("Testa funcionamento do GameBody", () => {
       userEvent.click(submitButton);
       expect(counter).toHaveTextContent(`Remaining attempts: ${1}`)
       userEvent.click(submitButton);
-      expect(counter).toHaveTextContent(`Remaining attempts: ${0}`)
+      expect(counter).toHaveTextContent(`Remaining attempts: ${0}`);
+      expect(submitButton).toHaveAttribute('disabled', "");
     })
 	});
 });
