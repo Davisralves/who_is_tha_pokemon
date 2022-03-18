@@ -10,6 +10,7 @@ const cors = require("cors");
 const app = (0, express_1.default)();
 app.use(cors());
 const { PORT } = process.env;
+console.log('port', PORT);
 app.get("/", requestPokemons_1.default);
 app.listen(PORT, () => {
     console.log(`Server is running at ${PORT || 8000}`);
