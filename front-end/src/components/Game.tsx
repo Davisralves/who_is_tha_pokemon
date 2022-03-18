@@ -11,8 +11,8 @@ type Props = {
 	setGameOn: Function;
 };
 
-const sortNumberFrom0To = (length: number): number => {
-	const max = length;
+export const sortNumberFrom0To = (length: number): number => {
+	const max = length - 1;
 	return Math.round(Math.random() * max);
 };
 
