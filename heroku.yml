@@ -1,5 +1,5 @@
 build:
   docker:
-    back-end: back-end/Dockerfile
+    web: back-end/Dockerfile
 run:
-  back-end: node index.js
+  web: node index.js
