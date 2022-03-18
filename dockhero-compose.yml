@@ -1,7 +1,0 @@
-version: '1.29.2'
-services:
-  back-end:
-    build: ./back-end
-    ports: 
-      - 8000:8000
-    env_file: ./back-end/.env

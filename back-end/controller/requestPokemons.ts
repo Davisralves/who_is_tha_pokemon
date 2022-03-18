@@ -10,7 +10,8 @@ const requestPokemons = async (
 		const pokemons = await PokemonService.requestPokemons();
 		return res.status(200).json(pokemons);
 	} catch (err) {
-		next(err);
+		console.log(err);
+    next(err);
 	}
 };
 
