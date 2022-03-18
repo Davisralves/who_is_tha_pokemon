@@ -11,8 +11,8 @@ type Props = {
 	setGameOn: Function;
 };
 
-const sortNumberFrom0To = (length: number): number => {
-	const max = length;
+export const sortNumberFrom0To = (length: number): number => {
+	const max = length - 1;
 	return Math.round(Math.random() * max);
 };
 
@@ -46,9 +46,11 @@ export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 			) : (
 				loading
 			)}
+
 			<Result GameState={gameResult} sortedPokemon={sortedPokemon} />
+      
 			{gameResult === GameState.inProgress ? (
-				<span />
+				<span data-testid="Game-in-progress" />
 			) : (
 				<button className="submitButton" onClick={() => setGameOn(false)}>
 					Home

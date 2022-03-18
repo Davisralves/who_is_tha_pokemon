@@ -3,6 +3,7 @@ import renderWithRouter from "../helpers/renderWithRouter";
 import Header from "../components/Header";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
+
 describe("Testando elemento header", () => {
 	test("Os links do header estão sendo renderizados corretamente", () => {
 		renderWithRouter(<Header />);
