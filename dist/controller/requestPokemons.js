@@ -19,6 +19,7 @@ const requestPokemons = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
         return res.status(200).json(pokemons);
     }
     catch (err) {
+        console.log(err);
         next(err);
     }
 });

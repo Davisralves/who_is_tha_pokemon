@@ -12,5 +12,5 @@ app.use(cors());
 const { PORT } = process.env;
 app.get("/", requestPokemons_1.default);
 app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT || 3000}`);
+    console.log(`Server is running at ${PORT || 8000}`);
 });
