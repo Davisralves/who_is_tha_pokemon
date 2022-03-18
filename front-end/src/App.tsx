@@ -20,7 +20,7 @@ function App() {
 				setFetched(true);
 			} catch (err) {
 				console.log(err);
-			}
+			} //pesquisar como fazer deploy com dockerhero
 		};
 		request();
 	}, []);
