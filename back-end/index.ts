@@ -12,5 +12,5 @@ const { PORT } = process.env;
 app.get("/", requestPokemons);
 
 app.listen(PORT, () => {
-	console.log(`Server is running at ${process.env.HOST}${PORT || 8000}`);
+	console.log(`Server is running at ${process.env.DOCKHERO_HOST}${PORT || 8000}`);
 });
