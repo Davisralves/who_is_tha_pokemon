@@ -1,7 +1,6 @@
 import { screen } from "@testing-library/react";
 import renderWithRouter from "../helpers/renderWithRouter";
 import App from "../App";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 describe("Testa funcionamento do app", () => {
   it('Titulo é renderizado corretamente', () => {
@@ -12,8 +11,8 @@ describe("Testa funcionamento do app", () => {
 
   it('Botão começar é renderizado corretamente', () => {
     renderWithRouter(<App/>);
-    const startButton = screen.getByRole('button', {name: 'Start'});
+    const startButton = screen.getByRole('button', {value: 'Start'});
     expect(startButton).toBeInTheDocument();
-    expect(startButton).toHaveProperty(isDisabled);
+    expect(startButton).toHaveProperty('disabled');
   })
 });

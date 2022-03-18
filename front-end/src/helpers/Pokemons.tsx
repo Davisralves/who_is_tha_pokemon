@@ -8,7 +8,7 @@ const pokemonDefaulObject: IpokemonObjects = [
     img: 'null'
   },
   {
-    name: 'bulbassauro',
+    name: 'bulbasaur',
     type1: 'grass',
     height: '0,7m',
     weight: '6,9kg',

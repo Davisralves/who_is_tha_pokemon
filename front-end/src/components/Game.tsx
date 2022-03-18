@@ -46,9 +46,11 @@ export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 			) : (
 				loading
 			)}
+
 			<Result GameState={gameResult} sortedPokemon={sortedPokemon} />
+      
 			{gameResult === GameState.inProgress ? (
-				<span />
+				<span data-testid="Game-in-progress" />
 			) : (
 				<button className="submitButton" onClick={() => setGameOn(false)}>
 					Home

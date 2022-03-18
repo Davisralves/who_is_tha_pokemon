@@ -3,6 +3,8 @@ import renderWithRouter from "../helpers/renderWithRouter";
 import Result from "../components/Result";
 import {GameState} from '../helpers/enums';
 import pokemonDefaulObject from '../helpers/Pokemons';
+import { capitalizeFirstLetter } from "../helpers/Pokemons"
+
 
 describe('Testando component Results', () => {
   it('Renderiza um span vazio caso o jogo esteja em andamento', () => {
@@ -20,7 +22,7 @@ describe('Testando component Results', () => {
     })
     test('Se o componente imprime a mensagem de derrota corretamente', () => {
       renderWithRouter(<Result GameState={GameState.failed} sortedPokemon={pokemonDefaulObject[0]} />)
-      const winMessage = screen.queryByText(`You lost ! The secret Pokémon was ${pokemonDefaulObject[0].name}`);
+      const winMessage = screen.queryByText(`You lost ! The secret Pokémon was ${capitalizeFirstLetter(pokemonDefaulObject[0].name)}`);
       expect(winMessage).toBeInTheDocument();
     })
   })
