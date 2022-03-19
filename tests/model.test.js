@@ -80,5 +80,4 @@ describe('quando "registerNewPokemon" é requisitado corretamente a função ret
     expect(response).to.be.a('number');
     expect(response).to.be.equals(1);
   });
-
 });

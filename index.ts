@@ -1,10 +1,9 @@
 import express from "express";
-import requestPokemons from "./controller/requestPokemons";
 import errorHandler from "./controller/middlewares/errorHandler";
 import "dotenv/config";
 import { validatePokemon } from "./controller/middlewares/validatePokemonBody";
-import registerNewPokemon from "./controller/registerNewPokemon";
-
+import { searchPokemon } from "./controller/middlewares/searchPokemon";
+import {deletePokemon, registerNewPokemon, requestPokemons} from './controller/index';
 const cors = require("cors");
 const app = express();
 
@@ -15,6 +14,10 @@ const { PORT } = process.env;
 app.get("/", requestPokemons);
 
 app.post("/pokemon", validatePokemon, registerNewPokemon);
+
+app.delete("/pokemon", searchPokemon, deletePokemon);
+
+app.put("/pokemon", searchPokemon, validateNewPokemon, editPokemon);
 
 app.use(errorHandler);
 

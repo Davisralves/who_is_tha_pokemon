@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import PokemonService from "../services/Pokemons";
 import StatusCode from "../enums/statusCode";
 
-const requestPokemons = async (
+export const requestPokemons = async (
 	req: Request,
 	res: Response,
 	next: NextFunction
@@ -15,5 +15,3 @@ const requestPokemons = async (
     next(error);
 	}
 };
-
-export default requestPokemons;

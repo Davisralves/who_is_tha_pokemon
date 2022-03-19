@@ -1,14 +1,19 @@
 import { Request, Response, NextFunction } from "express";
 import PokemonService from "../services/Pokemons";
 import StatusCode from "../enums/statusCode";
-export const postFirst151Pokemons = async (
-	_req: Request,
+import { IpokemonObject } from "../interfaces/Pokemons";
+
+export const deletePokemon = async (
+	req: Request,
 	res: Response,
 	next: NextFunction
 ) => {
 	try {
-		const pokemons = await PokemonService.registerFirst151Pokemons();
-		return res.status(201).json(pokemons);
+    const { name } = req.body as IpokemonObject;
+    const id = await PokemonService.deletePokemon(name);
+    if(id) {
+      res.status(StatusCode.OK).json({name});
+    } throw 'could not delete this pokemon'
 	} catch (err) {
     const error = {status: StatusCode.INTERNAL_SERVER_ERROR, message: err}
     next(error);
