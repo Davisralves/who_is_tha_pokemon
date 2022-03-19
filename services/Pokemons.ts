@@ -1,5 +1,5 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
-import PokemonsModel from "../models/Pokemons";
+import {PokemonsModel} from "../models/Pokemons";
 
 const PokemonService = {
 	requestPokemons: async () => {

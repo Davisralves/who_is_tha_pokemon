@@ -1,9 +1,9 @@
-import connection from "./connection";
+import {connection} from "./connection";
 import PokemonApi from "./PokemonsAPi";
 import { ResultSetHeader, RowDataPacket } from "mysql2";
 import { resolvePromises } from "./PokemonsAPi";
 
-const PokemonsModel = {
+export const PokemonsModel = {
 	registerFirst151Pokemons: async () => {
 		const query = `INSERT INTO pokemons 
     (pokemon_name, type1, type2, pokemon_height, pokemon_weight, imagem_url)
@@ -58,5 +58,3 @@ const PokemonsModel = {
     return result.insertId;
 	},
 };
-
-export default PokemonsModel;
