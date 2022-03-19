@@ -36,11 +36,11 @@ const PokemonService = {
 		const {
 			name: newName,
 			type1: newType1,
-			type2: newType2,
 			weight: newWeight,
 			height: newHeight,
 		} = editedPokemon;
-    PokemonsModel.editPokemon(currentName, newName, newType1, newType2, newHeight, newWeight)
+    const newType2 = currentPokemon.type2 || 'none';
+    return await PokemonsModel.editPokemon(currentName, newName, newType1, newType2, newHeight, newWeight)
 	},
 };
 

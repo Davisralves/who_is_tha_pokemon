@@ -45,7 +45,7 @@ export const PokemonsModel = {
 		height: string,
 		img: string
 	) => {
-		const query = `INSERT INTO pokemons (name, type1, type2, weight, height, img)
+		const query = `INSERT INTO pokemons (pokemon_name, type1, type2, pokemon_weight, pokemon_height, imagem_url)
     VALUES (?, ?, ?, ?, ?, ?)`;
 		const [result] = await connection.execute<ResultSetHeader>(query, [
 			name,
@@ -59,12 +59,14 @@ export const PokemonsModel = {
 	},
 
   deletePokemon: async (name: string) => {
-    const query = `DELETE FROM pokemons WHERE name = ?`
+    const query = `DELETE FROM pokemons WHERE pokemon_name = ?`
     const [result] = await connection.execute<ResultSetHeader>(query, [name]);
     return result.insertId;
   },
 
-  editPokemon: async (currentName, newName, newType1, newType2, newHeight, newWeight) => {
-    const query = 
+  editPokemon: async (currentName: string, newName: string, newType1: string, newType2: string, newHeight: string, newWeight: string) => {
+    const query = `UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ?, WHERE pokemon_name = ?`;
+    const [result] = await connection.execute<ResultSetHeader>(query, [newName, newType1, newType2, newHeight, newWeight, currentName]);
+    return result.insertId;
   }
 };

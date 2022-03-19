@@ -39,6 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.postFirst151Pokemons = void 0;
 var Pokemons_1 = __importDefault(require("../services/Pokemons"));
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
 var postFirst151Pokemons = function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
@@ -60,4 +61,4 @@ var postFirst151Pokemons = function (_req, res, next) { return __awaiter(void 0,
         }
     });
 }); };
-exports.default = postFirst151Pokemons;
+exports.postFirst151Pokemons = postFirst151Pokemons;

@@ -3,7 +3,13 @@ import errorHandler from "./controller/middlewares/errorHandler";
 import "dotenv/config";
 import { validatePokemon } from "./controller/middlewares/validatePokemonBody";
 import { searchPokemon } from "./controller/middlewares/searchPokemon";
-import {deletePokemon, registerNewPokemon, requestPokemons} from './controller/index';
+import {
+	deletePokemon,
+	registerNewPokemon,
+	requestPokemons,
+	validateNewPokemon,
+	editPokemon,
+} from "./controller/index";
 const cors = require("cors");
 const app = express();
 

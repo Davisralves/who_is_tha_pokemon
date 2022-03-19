@@ -63,7 +63,7 @@ var PokemonService = {
             switch (_b.label) {
                 case 0:
                     _a = pokemon, name = _a.name, type1 = _a.type1, weight = _a.weight, height = _a.height, img = _a.img;
-                    type2 = pokemon.type2 || 'none';
+                    type2 = pokemon.type2 || "none";
                     return [4 /*yield*/, Pokemons_1.PokemonsModel.registerNewPokemon(name, type1, type2, weight, height, img)];
                 case 1: return [2 /*return*/, _b.sent()];
             }
@@ -73,6 +73,27 @@ var PokemonService = {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.getByName(name)];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    }); },
+    deletePokemon: function (name) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.deletePokemon(name)];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    }); },
+    editPokemon: function (currentPokemon, editedPokemon) { return __awaiter(void 0, void 0, void 0, function () {
+        var currentName, newName, newType1, newWeight, newHeight, newType2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    currentName = currentPokemon.name;
+                    newName = editedPokemon.name, newType1 = editedPokemon.type1, newWeight = editedPokemon.weight, newHeight = editedPokemon.height;
+                    newType2 = currentPokemon.type2 || 'none';
+                    return [4 /*yield*/, Pokemons_1.PokemonsModel.editPokemon(currentName, newName, newType1, newType2, newHeight, newWeight)];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });

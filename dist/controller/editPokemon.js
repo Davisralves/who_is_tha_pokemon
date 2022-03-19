@@ -39,23 +39,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerNewPokemon = void 0;
+exports.editPokemon = void 0;
 var Pokemons_1 = __importDefault(require("../services/Pokemons"));
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
-var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var pokemon, err_1, error;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+var editPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, currentPokemon, EditedPokemon, id, err_1, error;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                pokemon = req.body;
-                return [4 /*yield*/, Pokemons_1.default.registerNewPokemon(pokemon)];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, currentPokemon = _a[0], EditedPokemon = _a[1];
+                return [4 /*yield*/, Pokemons_1.default.editPokemon(currentPokemon, EditedPokemon)];
             case 1:
-                _a.sent();
-                res.status(statusCode_1.default.CREATED).json(pokemon);
-                return [3 /*break*/, 3];
+                id = _b.sent();
+                if (id) {
+                    res.status(statusCode_1.default.ACCEPTED).json({ EditedPokemon: EditedPokemon });
+                }
+                throw 'could not edit this pokemon';
             case 2:
-                err_1 = _a.sent();
+                err_1 = _b.sent();
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
                 next(error);
                 return [3 /*break*/, 3];
@@ -63,4 +65,4 @@ var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, vo
         }
     });
 }); };
-exports.registerNewPokemon = registerNewPokemon;
+exports.editPokemon = editPokemon;

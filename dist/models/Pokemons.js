@@ -98,7 +98,7 @@ exports.PokemonsModel = {
             switch (_a.label) {
                 case 0:
                     query = "SELECT * FROM pokemons WHERE pokemon_name = ?";
-                    return [4 /*yield*/, connection_1.connection.execute(query, name)];
+                    return [4 /*yield*/, connection_1.connection.execute(query, [name])];
                 case 1:
                     result = (_a.sent())[0];
                     return [2 /*return*/, result];
@@ -110,7 +110,7 @@ exports.PokemonsModel = {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    query = "INSERT INTO pokemons (name, type1, type2, weight, height, img)\n    VALUES (?, ?, ?, ?, ?, ?)";
+                    query = "INSERT INTO pokemons (pokemon_name, type1, type2, pokemon_weight, pokemon_height, imagem_url)\n    VALUES (?, ?, ?, ?, ?, ?)";
                     return [4 /*yield*/, connection_1.connection.execute(query, [
                             name,
                             type1,
@@ -125,4 +125,30 @@ exports.PokemonsModel = {
             }
         });
     }); },
+    deletePokemon: function (name) { return __awaiter(void 0, void 0, void 0, function () {
+        var query, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    query = "DELETE FROM pokemons WHERE pokemon_name = ?";
+                    return [4 /*yield*/, connection_1.connection.execute(query, [name])];
+                case 1:
+                    result = (_a.sent())[0];
+                    return [2 /*return*/, result.insertId];
+            }
+        });
+    }); },
+    editPokemon: function (currentName, newName, newType1, newType2, newHeight, newWeight) { return __awaiter(void 0, void 0, void 0, function () {
+        var query, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    query = "UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ?, WHERE pokemon_name = ?";
+                    return [4 /*yield*/, connection_1.connection.execute(query, [newName, newType1, newType2, newHeight, newWeight, currentName])];
+                case 1:
+                    result = (_a.sent())[0];
+                    return [2 /*return*/, result.insertId];
+            }
+        });
+    }); }
 };

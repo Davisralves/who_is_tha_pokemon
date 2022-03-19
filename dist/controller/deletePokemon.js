@@ -39,21 +39,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerNewPokemon = void 0;
+exports.deletePokemon = void 0;
 var Pokemons_1 = __importDefault(require("../services/Pokemons"));
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
-var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var pokemon, err_1, error;
+var deletePokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var name_1, id, err_1, error;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                pokemon = req.body;
-                return [4 /*yield*/, Pokemons_1.default.registerNewPokemon(pokemon)];
+                name_1 = req.body.name;
+                return [4 /*yield*/, Pokemons_1.default.deletePokemon(name_1)];
             case 1:
-                _a.sent();
-                res.status(statusCode_1.default.CREATED).json(pokemon);
-                return [3 /*break*/, 3];
+                id = _a.sent();
+                if (id) {
+                    res.status(statusCode_1.default.OK).json({ name: name_1 });
+                }
+                throw 'could not delete this pokemon';
             case 2:
                 err_1 = _a.sent();
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
@@ -63,4 +65,4 @@ var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, vo
         }
     });
 }); };
-exports.registerNewPokemon = registerNewPokemon;
+exports.deletePokemon = deletePokemon;

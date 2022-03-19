@@ -39,28 +39,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerNewPokemon = void 0;
-var Pokemons_1 = __importDefault(require("../services/Pokemons"));
+exports.validateNewPokemon = void 0;
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
-var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var pokemon, err_1, error;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+var helpers_1 = require("./middlewares/helpers");
+var Pokemons_1 = __importDefault(require("../services/Pokemons"));
+var validateNewPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, currentPokemon, EditedPokemon, _b, name_1, type1, weight, height, img, type2, searchPokemon, err_1, error;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                pokemon = req.body;
-                return [4 /*yield*/, Pokemons_1.default.registerNewPokemon(pokemon)];
+                _c.trys.push([0, 2, , 3]);
+                _a = req.body, currentPokemon = _a[0], EditedPokemon = _a[1];
+                _b = EditedPokemon, name_1 = _b.name, type1 = _b.type1, weight = _b.weight, height = _b.height, img = _b.img;
+                type2 = req.body.type2;
+                if (!(0, helpers_1.AllAreString)([name_1, type1, weight, height, img, type2])) {
+                    throw "All values should be a string";
+                }
+                return [4 /*yield*/, Pokemons_1.default.getPokemonByName(name_1)];
             case 1:
-                _a.sent();
-                res.status(statusCode_1.default.CREATED).json(pokemon);
-                return [3 /*break*/, 3];
+                searchPokemon = _c.sent();
+                if (searchPokemon.length === 0) {
+                    return [2 /*return*/, next()];
+                }
+                throw "Name alredy exist";
             case 2:
-                err_1 = _a.sent();
-                error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
+                err_1 = _c.sent();
+                error = { status: statusCode_1.default.BAD_REQUEST, message: err_1 };
                 next(error);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
-exports.registerNewPokemon = registerNewPokemon;
+exports.validateNewPokemon = validateNewPokemon;
