@@ -5,7 +5,6 @@ import { resolvePromises } from "./PokemonsAPi";
 
 const PokemonsModel = {
   registerFirst151Pokemons: async () => {
-    console.log('começou');
     const query = `INSERT INTO pokemons 
     (pokemon_name, type1, type2, pokemon_height, pokemon_weight, imagem_url)
     VALUES (?, ?, ?, ?, ?, ?)`;
@@ -17,8 +16,11 @@ const PokemonsModel = {
         query, [name, type1, type2, height, weight, img]);
     });
     const resolvedPromises = await resolvePromises(promises);
-    console.log(resolvedPromises);
-    return resolvePromises;
+    return resolvedPromises;
+  },
+
+  fetchPokemons: async () => {
+    return await PokemonApi.fetchPokemons();
   }
 }
 

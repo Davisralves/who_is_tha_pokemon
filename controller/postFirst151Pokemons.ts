@@ -1,18 +1,17 @@
 import { Request, Response, NextFunction } from "express";
-import PokemonsModel from "../models/Pokemons";
+import PokemonService from "../services/Pokemons";
 
 const postFirst151Pokemons = async (
-	req: Request,
+	_req: Request,
 	res: Response,
 	next: NextFunction
 ) => {
 	try {
-		const pokemons = await PokemonsModel.registerFirst151Pokemons();
-    console.log(pokemons);
+		const pokemons = await PokemonService.registerFirst151Pokemons();
 		return res.status(201).json(pokemons);
 	} catch (err) {
-		console.log(err);
-    next(err);
+    const error = {status: 500, message: err}
+    next(error);
 	}
 };
 
