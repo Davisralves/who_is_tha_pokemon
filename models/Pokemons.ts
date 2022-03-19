@@ -1,6 +1,6 @@
 import connection from "./connection";
 import PokemonApi from "./PokemonsAPi";
-import {ResultSetHeader} from 'mysql2'
+import {ResultSetHeader, RowDataPacket} from 'mysql2'
 import { resolvePromises } from "./PokemonsAPi";
 
 const PokemonsModel = {
@@ -19,8 +19,10 @@ const PokemonsModel = {
     return resolvedPromises;
   },
 
-  fetchPokemons: async () => {
-    return await PokemonApi.fetchPokemons();
+  getAll: async () => {
+    const query = `SELECT * FROM pokemons`;
+    const [pokemons] = await connection.execute(query) as RowDataPacket[];
+    return pokemons;
   }
 }
 

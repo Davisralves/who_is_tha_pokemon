@@ -17,7 +17,6 @@ const PokemonsAPi_1 = __importDefault(require("./PokemonsAPi"));
 const PokemonsAPi_2 = require("./PokemonsAPi");
 const PokemonsModel = {
     registerFirst151Pokemons: () => __awaiter(void 0, void 0, void 0, function* () {
-        console.log('começou');
         const query = `INSERT INTO pokemons 
     (pokemon_name, type1, type2, pokemon_height, pokemon_weight, imagem_url)
     VALUES (?, ?, ?, ?, ?, ?)`;
@@ -28,8 +27,12 @@ const PokemonsModel = {
             return yield connection_1.default.execute(query, [name, type1, type2, height, weight, img]);
         }));
         const resolvedPromises = yield (0, PokemonsAPi_2.resolvePromises)(promises);
-        console.log(resolvedPromises);
-        return PokemonsAPi_2.resolvePromises;
+        return resolvedPromises;
+    }),
+    getAll: () => __awaiter(void 0, void 0, void 0, function* () {
+        const query = `SELECT * FROM pokemons`;
+        const [pokemons] = yield connection_1.default.execute(query);
+        return pokemons;
     })
 };
 exports.default = PokemonsModel;

@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Pokemons_1 = __importDefault(require("../services/Pokemons"));
 const requestPokemons = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const pokemons = yield Pokemons_1.default.requestPokemons();
-        return res.status(200).json(pokemons);
+        const allPokemons = yield Pokemons_1.default.requestPokemons();
+        return res.status(200).json(allPokemons);
     }
     catch (err) {
         console.log(err);

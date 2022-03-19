@@ -8,18 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Pokemons_1 = __importDefault(require("../models/Pokemons"));
-const PokemonService = {
-    requestPokemons: () => __awaiter(void 0, void 0, void 0, function* () {
-        const allPokemons = yield Pokemons_1.default.getAll();
-        return allPokemons;
-    }),
-    registerFirst151Pokemons: () => __awaiter(void 0, void 0, void 0, function* () {
-        return yield Pokemons_1.default.registerFirst151Pokemons();
-    })
-};
-exports.default = PokemonService;
+const errorHandler = (error, _req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    res.status(error.status).json({ error: `Erro: ${error.message}` });
+});
+exports.default = errorHandler;

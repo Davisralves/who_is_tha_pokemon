@@ -7,8 +7,8 @@ const requestPokemons = async (
 	next: NextFunction
 ) => {
 	try {
-		const pokemons = await PokemonService.requestPokemons();
-		return res.status(200).json(pokemons);
+		const allPokemons = await PokemonService.requestPokemons();
+		return res.status(200).json(allPokemons);
 	} catch (err) {
 		console.log(err);
     next(err);

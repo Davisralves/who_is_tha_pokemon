@@ -13,3 +13,5 @@ const errorHandler = async (
 ) => {
   res.status(error.status).json({error: `Erro: ${error.message}`})
 }
+
+export default errorHandler;
