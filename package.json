@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "start":"node ./dist/index.js",
+    "start": "node ./dist/index.js",
     "dev": "tsnd index.ts",
     "build": "tsc",
     "test": "npm test"
@@ -32,6 +32,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "mysql2": "^2.3.3",
     "node-fetch": "^2.6.7"
   }
 }

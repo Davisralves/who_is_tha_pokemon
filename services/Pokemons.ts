@@ -1,4 +1,4 @@
-import PokemonModel from "../models/Pokemons";
+import PokemonModel from "../models/PokemonsAPi";
 
 const PokemonService = {
 	requestPokemons: async () => {

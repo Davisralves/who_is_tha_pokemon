@@ -8,41 +8,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const fetch = require("node-fetch");
-const fetchFirst151Pokemons = () => __awaiter(void 0, void 0, void 0, function* () {
-    const pokemons = yield fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
-    return yield pokemons.json();
-});
-const getPokemonsDetailsPromises = (first151Pokemons) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield first151Pokemons.results.map(({ url }) => __awaiter(void 0, void 0, void 0, function* () {
-        const pokemonsDetails = yield fetch(url);
-        return yield pokemonsDetails.json();
-    }));
-});
-const filterPokemonInfo = (pokemonsInfo) => pokemonsInfo.map((pokemonDetail) => {
-    const { name, types, height, weight, sprites: { other: { dream_world: { front_default: img }, }, }, } = pokemonDetail.value;
-    console.log(types[0].type.name);
-    const pokemonObject = {
-        name,
-        type1: types[0].type.name,
-        height,
-        weight,
-        img,
-    };
-    if (types[1]) {
-        pokemonObject.type2 = types[1].type.name;
-    }
-    return pokemonObject;
-});
-const PokemonModel = {
-    fetchPokemons: () => __awaiter(void 0, void 0, void 0, function* () {
-        const first151Pokemons = yield fetchFirst151Pokemons();
-        const pokemonDetailsPromises = yield getPokemonsDetailsPromises(first151Pokemons);
-        const allPromises = yield Promise.allSettled(pokemonDetailsPromises);
-        const resolvedPromises = allPromises.filter((resolvedPromise) => resolvedPromise.status === "fulfilled");
-        const pokemonsWithDetails = filterPokemonInfo(resolvedPromises);
-        return pokemonsWithDetails;
-    }),
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.default = PokemonModel;
+Object.defineProperty(exports, "__esModule", { value: true });
+const connection_1 = __importDefault(require("./connection"));
+const PokemonsAPi_1 = __importDefault(require("./PokemonsAPi"));
+const PokemonsAPi_2 = require("./PokemonsAPi");
+const PokemonsModel = {
+    registerFirst151Pokemons: () => __awaiter(void 0, void 0, void 0, function* () {
+        console.log('começou');
+        const query = `INSERT INTO pokemons 
+    (pokemon_name, type1, type2, pokemon_height, pokemon_weight, imagem_url)
+    VALUES (?, ?, ?, ?, ?, ?)`;
+        const pokemons = yield PokemonsAPi_1.default.fetchPokemons();
+        const promises = pokemons.map((pokemon) => __awaiter(void 0, void 0, void 0, function* () {
+            const { name, type1, height, weight, img } = pokemon;
+            const type2 = pokemon.type2 || 'none';
+            return yield connection_1.default.execute(query, [name, type1, type2, height, weight, img]);
+        }));
+        const resolvedPromises = yield (0, PokemonsAPi_2.resolvePromises)(promises);
+        console.log(resolvedPromises);
+        return PokemonsAPi_2.resolvePromises;
+    })
+};
+exports.default = PokemonsModel;

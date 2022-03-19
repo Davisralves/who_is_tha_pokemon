@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Pokemons_1 = __importDefault(require("../models/Pokemons"));
+const PokemonsAPi_1 = __importDefault(require("../models/PokemonsAPi"));
 const PokemonService = {
     requestPokemons: () => __awaiter(void 0, void 0, void 0, function* () {
-        const first151Pokemons = yield Pokemons_1.default.fetchPokemons();
+        const first151Pokemons = yield PokemonsAPi_1.default.fetchPokemons();
         return first151Pokemons;
     }),
 };
