@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import StatusCode from "../enums/statusCode";
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { AllAreString } from "./middlewares/helpers";
-import { PokemonService } from "../services/Pokemons";
+import { PokemonService } from "../../services/Pokemons";
 
 export const validateNewPokemon = async (
 	req: Request,

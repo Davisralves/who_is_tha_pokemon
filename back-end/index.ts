@@ -1,8 +1,8 @@
 import express from "express";
-import errorHandler from "./controller/middlewares/errorHandler";
+import errorHandler from "./back-end/controller/middlewares/errorHandler";
 import "dotenv/config";
-import { validatePokemon } from "./controller/middlewares/validatePokemonBody";
-import { searchPokemon } from "./controller/middlewares/searchPokemon";
+import { validatePokemon } from "./back-end/controller/middlewares/validatePokemonBody";
+import { searchPokemon } from "./back-end/controller/middlewares/searchPokemon";
 import {
 	deletePokemon,
 	registerNewPokemon,
@@ -11,7 +11,7 @@ import {
 	editPokemon,
   deleteAllPokemons,
   postFirst151Pokemons,
-} from "./controller/index";
+} from "./back-end/controller/index";
 const cors = require("cors");
 const app = express();
 

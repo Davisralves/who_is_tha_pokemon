@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import StatusCode from "../../enums/statusCode";
 import { IpokemonObject } from "../../interfaces/Pokemons";
-import { PokemonService } from "../../services/Pokemons";
+import { PokemonService } from "../../../services/Pokemons";
 
 export const searchPokemon = async (
 	req: Request,

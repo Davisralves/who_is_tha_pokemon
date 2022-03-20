@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { PokemonService } from "../services/Pokemons";
+import { PokemonService } from "../../services/Pokemons";
 import StatusCode from "../enums/statusCode";
 import { IpokemonObject } from "../interfaces/Pokemons";
 
