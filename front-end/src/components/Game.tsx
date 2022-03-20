@@ -48,7 +48,7 @@ export default function Game({ pokemons, isFetched, setGameOn }: Props) {
 			)}
 
 			<Result GameState={gameResult} sortedPokemon={sortedPokemon} />
-      
+
 			{gameResult === GameState.inProgress ? (
 				<span data-testid="Game-in-progress" />
 			) : (
