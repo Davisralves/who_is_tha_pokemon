@@ -33,7 +33,7 @@ export default function Pokedex() {
 						<PokemonCard pokemon={pokemon} key={index} />
 					))
 				) : (
-					<span>Loading</span>
+					<h3>Loading...</h3>
 				)}
 			</section>
 		</main>
