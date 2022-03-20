@@ -42,6 +42,10 @@ const PokemonService = {
     const newType2 = currentPokemon.type2 || 'none';
     return await PokemonsModel.editPokemon(currentName, newName, newType1, newType2, newHeight, newWeight)
 	},
+
+  deleteAllPokemons: async () => {
+    return await PokemonsModel.deleteAllPokemons();
+  }
 };
 
 export default PokemonService;

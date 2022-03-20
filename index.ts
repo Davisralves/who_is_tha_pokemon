@@ -9,6 +9,8 @@ import {
 	requestPokemons,
 	validateNewPokemon,
 	editPokemon,
+  deleteAllPokemons,
+  postFirst151Pokemons,
 } from "./controller/index";
 const cors = require("cors");
 const app = express();
@@ -24,6 +26,8 @@ app.post("/pokemon", validatePokemon, registerNewPokemon);
 app.delete("/pokemon", searchPokemon, deletePokemon);
 
 app.put("/pokemon", searchPokemon, validateNewPokemon, editPokemon);
+
+app.put("/restardb", deleteAllPokemons, postFirst151Pokemons )
 
 app.use(errorHandler);
 

@@ -68,5 +68,11 @@ export const PokemonsModel = {
     const query = `UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ?, WHERE pokemon_name = ?`;
     const [result] = await connection.execute<ResultSetHeader>(query, [newName, newType1, newType2, newHeight, newWeight, currentName]);
     return result.insertId;
+  },
+
+  deleteAllPokemons: async () => {
+    const query = `DELETE FROM pokemons`;
+    const [result] = await connection.execute<ResultSetHeader>(query);
+    return result;
   }
 };

@@ -4,6 +4,7 @@ import {requestPokemons} from './requestPokemons';
 import { registerNewPokemon } from './registerNewPokemon';
 import { editPokemon } from './editPokemon';
 import { validateNewPokemon } from './validateNewPokemon';
+import { deleteAllPokemons } from './deleteAllPokemons';
 
 export {
   deletePokemon,
@@ -12,4 +13,5 @@ export {
   registerNewPokemon,
   editPokemon,
   validateNewPokemon,
+  deleteAllPokemons,
 };
