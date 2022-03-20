@@ -92,4 +92,4 @@ describe('testa "registerNewPokemon" em caso de erro', () => {
 		expect(response.status.calledWith(201)).to.be.equal(false);
 		expect(nextSpy.calledOnce).to.be.true;
   })
-})
+}) //
