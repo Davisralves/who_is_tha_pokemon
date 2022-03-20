@@ -6,7 +6,6 @@ const { PokemonService } = require("../dist/services/Pokemons");
 describe('testa "requestPokemons" em caso de sucesso', () => {
 	const response = {};
 	const request = {};
-	const next = () => "";
 	before(() => {
 		response.status = sinon.stub().returns(response);
 		response.json = sinon.stub().returns();
@@ -20,7 +19,7 @@ describe('testa "requestPokemons" em caso de sucesso', () => {
 	});
 
 	it("é chamado o status com o código 200", async () => {
-		await PokemonController.requestPokemons(request, response, next);
+		await PokemonController.requestPokemons(request, response);
 		expect(response.status.calledWith(200)).to.be.equal(true);
 		expect(response.json.calledWith({ pokemons: "pokemons" })).to.be.equal(
 			true
@@ -32,7 +31,6 @@ describe('testa "requestPokemons" em caso de erro', () => {
 	const response = {};
 	const request = {};
 	var nextSpy = sinon.spy();
-	const error = { status: 500, message: "error" };
 	before(() => {
 		response.status = sinon.stub().returns(response);
 		response.json = sinon.stub().returns();
@@ -50,8 +48,48 @@ describe('testa "requestPokemons" em caso de erro', () => {
 	});
 });
 
-it('é chamado o send com a mensagem "Dados inválidos"', async () => {
-	await MoviesController.create(request, response);
+describe('testa "registerNewPokemon" em caso de sucesso', () => {
+	const response = {};
+	const request = {};
+	before(() => {
+    response.status = sinon.stub().returns(response);
+		response.json = sinon.stub().returns();
+    request.body = 'pokemons';
+		sinon
+			.stub(PokemonService, "registerNewPokemon")
+			.resolves();
+	});
 
-	expect(response.send.calledWith("Dados inválidos")).to.be.equal(true);
-});
+	after(() => {
+		PokemonService.registerNewPokemon.restore();
+	});
+
+  it('é chamado o status com o código 201', async () => {
+    await PokemonController.registerNewPokemon(request, response);
+		expect(response.status.calledWith(201)).to.be.equal(true);
+		expect(response.json.calledWith('pokemons')).to.be.equal(
+			true
+		);
+  })
+})
+
+describe('testa "registerNewPokemon" em caso de erro', () => {
+	const response = {};
+	const request = {};
+	var nextSpy = sinon.spy();
+	before(() => {
+    response.status = sinon.stub().returns(response);
+		sinon
+			.stub(PokemonService, "registerNewPokemon").throws('error');
+	});
+
+	after(() => {
+		PokemonService.registerNewPokemon.restore();
+	});
+
+  it('é chamado o middleWare de erro atravez da função next', async () => {
+    await PokemonController.registerNewPokemon(request, response, nextSpy);
+		expect(response.status.calledWith(201)).to.be.equal(false);
+		expect(nextSpy.calledOnce).to.be.true;
+  })
+})

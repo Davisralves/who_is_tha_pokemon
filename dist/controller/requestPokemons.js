@@ -54,9 +54,7 @@ var requestPokemons = function (_req, res, next) { return __awaiter(void 0, void
                 return [2 /*return*/, res.status(200).json(allPokemons)];
             case 2:
                 err_1 = _a.sent();
-                console.log(err_1);
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
-                console.log(error);
                 next(error);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
