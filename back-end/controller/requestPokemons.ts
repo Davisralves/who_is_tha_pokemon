@@ -1,17 +1,17 @@
 import { Request, Response, NextFunction } from "express";
-import PokemonService from "../services/Pokemons";
+import { PokemonService } from "../services/Pokemons";
+import StatusCode from "../enums/statusCode";
 
-const requestPokemons = async (
-	req: Request,
+export const requestPokemons = async (
+	_req: Request,
 	res: Response,
 	next: NextFunction
 ) => {
 	try {
-		const pokemons = await PokemonService.requestPokemons();
-		return res.status(200).json(pokemons);
+		const allPokemons = await PokemonService.requestPokemons();
+		return res.status(200).json(allPokemons);
 	} catch (err) {
-		next(err);
+		const error = { status: StatusCode.INTERNAL_SERVER_ERROR, message: err };
+		next(error);
 	}
 };
-
-export default requestPokemons;

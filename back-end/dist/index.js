@@ -3,14 +3,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const requestPokemons_1 = __importDefault(require("./controller/requestPokemons"));
+var express_1 = __importDefault(require("express"));
+var errorHandler_1 = __importDefault(require("./controller/middlewares/errorHandler"));
 require("dotenv/config");
-const cors = require("cors");
-const app = (0, express_1.default)();
+var validatePokemonBody_1 = require("./controller/middlewares/validatePokemonBody");
+var searchPokemon_1 = require("./controller/middlewares/searchPokemon");
+var index_1 = require("./controller/index");
+var cors = require("cors");
+var app = (0, express_1.default)();
 app.use(cors());
-const { PORT } = process.env;
-app.get("/", requestPokemons_1.default);
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT || 3000}`);
+var PORT = process.env.PORT;
+app.get("/", index_1.requestPokemons);
+app.post("/pokemon", validatePokemonBody_1.validatePokemon, index_1.registerNewPokemon);
+app.delete("/pokemon", searchPokemon_1.searchPokemon, index_1.deletePokemon);
+app.put("/pokemon", searchPokemon_1.searchPokemon, index_1.validateNewPokemon, index_1.editPokemon);
+app.put("/restardb", index_1.deleteAllPokemons, index_1.postFirst151Pokemons);
+app.use(errorHandler_1.default);
+app.listen(PORT, function () {
+    console.log("Server is running at ".concat(PORT || 8000));
 });
