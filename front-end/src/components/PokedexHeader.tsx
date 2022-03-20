@@ -8,9 +8,9 @@ export default function PokedexHeader() {
 				<Link className="link" to="/">
 					Home
 				</Link>
-				<Link className="link" to="/HowToPlay">
+				{/* <Link className="link" to="/HowToPlay">
 					Como Jogar
-				</Link>
+				</Link> */}
 			</div>
 		</header>
 	);

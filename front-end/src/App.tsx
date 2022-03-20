@@ -16,7 +16,6 @@ function App() {
 			try {
 				const response = await fetch(process.env.REACT_APP_API_URL as string);
 				const pokemons = (await response.json()) as IpokemonObjects;
-        console.log(pokemons);
 				setPokemons(pokemons);
 				setFetched(true);
 			} catch (err) {
