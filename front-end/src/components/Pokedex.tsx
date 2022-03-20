@@ -4,6 +4,7 @@ import PokemonCard from "./PokemonCard";
 import { useLocation } from "react-router-dom";
 import "../css/pokedex.css";
 import { useState } from "react";
+import {deletePokemon} from '../services/index';
 
 type pokemonLocation = {
 	state: {
@@ -30,12 +31,16 @@ export default function Pokedex() {
     } return setMessage('Have more than one pokemon in list. Please type the complete name')
   }
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if(selectedPokemon === '') {
       return setMessage('A pokemon must be Selected first')
     } else {
       setMessage('Deleting...');
-      
+      const deletedPokemon = await deletePokemon(selectedPokemon) as IpokemonObject;
+      if(deletedPokemon) {
+        setMessage(`Pokemon ${deletedPokemon.name} was deleted`);
+        return selectPokemon('');
+      } return setMessage('Cannot delete pokemon.')
     } 
 
   }

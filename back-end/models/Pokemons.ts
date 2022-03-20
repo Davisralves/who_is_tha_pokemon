@@ -32,6 +32,7 @@ export const PokemonsModel = {
 	},
 
 	getByName: async (name: string) => {
+    console.log('model', name);
     const query = `SELECT * FROM pokemons WHERE pokemon_name = ?`;
     const [result] = await connection.execute(query, [name]) as RowDataPacket[]
     return result;

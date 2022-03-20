@@ -87,7 +87,9 @@ exports.PokemonService = {
     getPokemonByName: function (name) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.getByName(name)];
+                case 0:
+                    console.log('service');
+                    return [4 /*yield*/, Pokemons_1.PokemonsModel.getByName(name.toLowerCase())];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });

@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import StatusCode from "../../enums/statusCode";
-import { IpokemonObject } from "../../interfaces/Pokemons";
 import { PokemonService } from "../../services/Pokemons";
+
+ export type pokemonName  = {
+  name: string,
+}
 
 export const searchPokemon = async (
 	req: Request,
@@ -9,11 +12,12 @@ export const searchPokemon = async (
 	next: NextFunction
 ) => {
 	try {
-		const { name } = req.body as IpokemonObject;
+		const { name } = req.params as pokemonName;
 		if (name) {
 			const searchedPokemon = await PokemonService.getPokemonByName(name);
+      console.log('searched pokemons', searchedPokemon);
 			if (searchedPokemon) {
-				next();
+				return next();
 			}
 			throw "Pokemon not found";
 		}

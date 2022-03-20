@@ -97,6 +97,7 @@ exports.PokemonsModel = {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    console.log('model', name);
                     query = "SELECT * FROM pokemons WHERE pokemon_name = ?";
                     return [4 /*yield*/, connection_1.connection.execute(query, [name])];
                 case 1:

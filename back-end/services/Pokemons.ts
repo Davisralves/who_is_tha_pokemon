@@ -41,7 +41,8 @@ export const PokemonService = {
 	},
 
 	getPokemonByName: async (name: string) => {
-		return await PokemonsModel.getByName(name);
+    console.log('service');
+		return await PokemonsModel.getByName(name.toLowerCase());
 	},
 
 	deletePokemon: async (name: string) => {
