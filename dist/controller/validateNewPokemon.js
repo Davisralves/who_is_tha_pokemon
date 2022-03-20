@@ -58,7 +58,6 @@ var validateNewPokemon = function (req, _res, next) { return __awaiter(void 0, v
                 return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchPokemon = _c.sent();
-                console.log(searchPokemon, searchPokemon.length);
                 if (searchPokemon.length === 0) {
                     return [2 /*return*/, next()];
                 }
@@ -66,7 +65,6 @@ var validateNewPokemon = function (req, _res, next) { return __awaiter(void 0, v
             case 2:
                 err_1 = _c.sent();
                 error = { status: statusCode_1.default.BAD_REQUEST, message: err_1 };
-                console.log(error);
                 next(error);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
