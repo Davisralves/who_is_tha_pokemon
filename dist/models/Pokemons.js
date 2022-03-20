@@ -150,5 +150,18 @@ exports.PokemonsModel = {
                     return [2 /*return*/, result.insertId];
             }
         });
+    }); },
+    deleteAllPokemons: function () { return __awaiter(void 0, void 0, void 0, function () {
+        var query, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    query = "DELETE FROM pokemons";
+                    return [4 /*yield*/, connection_1.connection.execute(query)];
+                case 1:
+                    result = (_a.sent())[0];
+                    return [2 /*return*/, result];
+            }
+        });
     }); }
 };

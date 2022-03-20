@@ -17,6 +17,7 @@ app.get("/", index_1.requestPokemons);
 app.post("/pokemon", validatePokemonBody_1.validatePokemon, index_1.registerNewPokemon);
 app.delete("/pokemon", searchPokemon_1.searchPokemon, index_1.deletePokemon);
 app.put("/pokemon", searchPokemon_1.searchPokemon, index_1.validateNewPokemon, index_1.editPokemon);
+app.put("/restardb", index_1.deleteAllPokemons, index_1.postFirst151Pokemons);
 app.use(errorHandler_1.default);
 app.listen(PORT, function () {
     console.log("Server is running at ".concat(PORT || 8000));

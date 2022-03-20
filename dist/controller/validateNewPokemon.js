@@ -42,8 +42,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateNewPokemon = void 0;
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
 var helpers_1 = require("./middlewares/helpers");
-var Pokemons_1 = __importDefault(require("../services/Pokemons"));
-var validateNewPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var Pokemons_1 = require("../services/Pokemons");
+var validateNewPokemon = function (req, _res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, currentPokemon, EditedPokemon, _b, name_1, type1, weight, height, img, type2, searchPokemon, err_1, error;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -55,7 +55,7 @@ var validateNewPokemon = function (req, res, next) { return __awaiter(void 0, vo
                 if (!(0, helpers_1.AllAreString)([name_1, type1, weight, height, img, type2])) {
                     throw "All values should be a string";
                 }
-                return [4 /*yield*/, Pokemons_1.default.getPokemonByName(name_1)];
+                return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchPokemon = _c.sent();
                 if (searchPokemon.length === 0) {

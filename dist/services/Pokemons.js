@@ -36,8 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PokemonService = void 0;
 var Pokemons_1 = require("../models/Pokemons");
-var PokemonService = {
+exports.PokemonService = {
     requestPokemons: function () { return __awaiter(void 0, void 0, void 0, function () {
         var allPokemons;
         return __generator(this, function (_a) {
@@ -98,5 +99,12 @@ var PokemonService = {
             }
         });
     }); },
+    deleteAllPokemons: function () { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.deleteAllPokemons()];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    }); }
 };
-exports.default = PokemonService;

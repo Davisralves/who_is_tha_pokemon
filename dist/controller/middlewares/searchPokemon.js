@@ -41,7 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.searchPokemon = void 0;
 var statusCode_1 = __importDefault(require("../../enums/statusCode"));
-var Pokemons_1 = __importDefault(require("../../services/Pokemons"));
+var Pokemons_1 = require("../../services/Pokemons");
 var searchPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var name_1, searchedPokemon, err_1, error;
     return __generator(this, function (_a) {
@@ -50,14 +50,14 @@ var searchPokemon = function (req, res, next) { return __awaiter(void 0, void 0,
                 _a.trys.push([0, 3, , 4]);
                 name_1 = req.body.name;
                 if (!name_1) return [3 /*break*/, 2];
-                return [4 /*yield*/, Pokemons_1.default.getPokemonByName(name_1)];
+                return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchedPokemon = _a.sent();
                 if (searchedPokemon) {
                     next();
                 }
-                throw 'Pokemon not found';
-            case 2: throw 'Name must be true';
+                throw "Pokemon not found";
+            case 2: throw "Name must be true";
             case 3:
                 err_1 = _a.sent();
                 error = { status: statusCode_1.default.BAD_REQUEST, message: err_1 };

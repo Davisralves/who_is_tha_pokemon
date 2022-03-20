@@ -39,20 +39,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postFirst151Pokemons = void 0;
+exports.deleteAllPokemons = void 0;
 var Pokemons_1 = require("../services/Pokemons");
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
-var postFirst151Pokemons = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var deletedPokemons, pokemons, err_1, error;
+var deleteAllPokemons = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var response, err_1, error;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                deletedPokemons = req.body.deletedPokemons;
-                return [4 /*yield*/, Pokemons_1.PokemonService.registerFirst151Pokemons()];
+                return [4 /*yield*/, Pokemons_1.PokemonService.deleteAllPokemons()];
             case 1:
-                pokemons = _a.sent();
-                return [2 /*return*/, res.status(201).json({ pokemons: pokemons, deletedPokemons: deletedPokemons })];
+                response = _a.sent();
+                req.body.deletedPokemons = response;
+                return [2 /*return*/, next()];
             case 2:
                 err_1 = _a.sent();
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
@@ -62,4 +62,4 @@ var postFirst151Pokemons = function (req, res, next) { return __awaiter(void 0, 
         }
     });
 }); };
-exports.postFirst151Pokemons = postFirst151Pokemons;
+exports.deleteAllPokemons = deleteAllPokemons;

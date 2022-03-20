@@ -40,21 +40,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.requestPokemons = void 0;
-var Pokemons_1 = __importDefault(require("../services/Pokemons"));
+var Pokemons_1 = require("../services/Pokemons");
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
-var requestPokemons = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var requestPokemons = function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var allPokemons, err_1, error;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, Pokemons_1.default.requestPokemons()];
+                return [4 /*yield*/, Pokemons_1.PokemonService.requestPokemons()];
             case 1:
                 allPokemons = _a.sent();
                 return [2 /*return*/, res.status(200).json(allPokemons)];
             case 2:
                 err_1 = _a.sent();
+                console.log(err_1);
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
+                console.log(error);
                 next(error);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];

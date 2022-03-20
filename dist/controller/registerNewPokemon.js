@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerNewPokemon = void 0;
-var Pokemons_1 = __importDefault(require("../services/Pokemons"));
+var Pokemons_1 = require("../services/Pokemons");
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
 var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var pokemon, err_1, error;
@@ -49,7 +49,7 @@ var registerNewPokemon = function (req, res, next) { return __awaiter(void 0, vo
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 pokemon = req.body;
-                return [4 /*yield*/, Pokemons_1.default.registerNewPokemon(pokemon)];
+                return [4 /*yield*/, Pokemons_1.PokemonService.registerNewPokemon(pokemon)];
             case 1:
                 _a.sent();
                 res.status(statusCode_1.default.CREATED).json(pokemon);

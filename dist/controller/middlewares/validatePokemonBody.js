@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.validatePokemon = void 0;
 var statusCode_1 = __importDefault(require("../../enums/statusCode"));
 var helpers_1 = require("./helpers");
-var Pokemons_1 = __importDefault(require("../../services/Pokemons"));
+var Pokemons_1 = require("../../services/Pokemons");
 var validatePokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name_1, type1, weight, height, img, type2, searchPokemon, err_1, error;
     return __generator(this, function (_b) {
@@ -52,15 +52,15 @@ var validatePokemon = function (req, res, next) { return __awaiter(void 0, void 
                 _a = req.body, name_1 = _a.name, type1 = _a.type1, weight = _a.weight, height = _a.height, img = _a.img;
                 type2 = req.body.type2;
                 if (!(0, helpers_1.AllAreString)([name_1, type1, weight, height, img, type2])) {
-                    throw 'All values should be a string';
+                    throw "All values should be a string";
                 }
-                return [4 /*yield*/, Pokemons_1.default.getPokemonByName(name_1)];
+                return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchPokemon = _b.sent();
                 if (searchPokemon.length === 0) {
                     return [2 /*return*/, next()];
                 }
-                throw 'Name alredy exist';
+                throw "Name alredy exist";
             case 2:
                 err_1 = _b.sent();
                 error = { status: statusCode_1.default.BAD_REQUEST, message: err_1 };

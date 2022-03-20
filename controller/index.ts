@@ -15,3 +15,13 @@ export {
   validateNewPokemon,
   deleteAllPokemons,
 };
+
+export const PokemonController = { // para testes
+  deletePokemon,
+  postFirst151Pokemons,
+  requestPokemons,
+  registerNewPokemon,
+  editPokemon,
+  validateNewPokemon,
+  deleteAllPokemons,
+}

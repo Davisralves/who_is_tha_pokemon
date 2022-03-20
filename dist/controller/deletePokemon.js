@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deletePokemon = void 0;
-var Pokemons_1 = __importDefault(require("../services/Pokemons"));
+var Pokemons_1 = require("../services/Pokemons");
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
 var deletePokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var name_1, id, err_1, error;
@@ -49,13 +49,13 @@ var deletePokemon = function (req, res, next) { return __awaiter(void 0, void 0,
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 name_1 = req.body.name;
-                return [4 /*yield*/, Pokemons_1.default.deletePokemon(name_1)];
+                return [4 /*yield*/, Pokemons_1.PokemonService.deletePokemon(name_1)];
             case 1:
                 id = _a.sent();
                 if (id) {
                     res.status(statusCode_1.default.OK).json({ name: name_1 });
                 }
-                throw 'could not delete this pokemon';
+                throw "could not delete this pokemon";
             case 2:
                 err_1 = _a.sent();
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };

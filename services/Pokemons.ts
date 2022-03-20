@@ -1,7 +1,7 @@
 import { IpokemonObject } from "../interfaces/Pokemons";
 import { PokemonsModel } from "../models/Pokemons";
 
-const PokemonService = {
+export const PokemonService = {
 	requestPokemons: async () => {
 		const allPokemons = await PokemonsModel.getAll();
 		return allPokemons;
@@ -48,4 +48,3 @@ const PokemonService = {
   }
 };
 
-export default PokemonService;

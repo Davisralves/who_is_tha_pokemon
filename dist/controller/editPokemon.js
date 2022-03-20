@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.editPokemon = void 0;
-var Pokemons_1 = __importDefault(require("../services/Pokemons"));
+var Pokemons_1 = require("../services/Pokemons");
 var statusCode_1 = __importDefault(require("../enums/statusCode"));
 var editPokemon = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, currentPokemon, EditedPokemon, id, err_1, error;
@@ -49,13 +49,13 @@ var editPokemon = function (req, res, next) { return __awaiter(void 0, void 0, v
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, currentPokemon = _a[0], EditedPokemon = _a[1];
-                return [4 /*yield*/, Pokemons_1.default.editPokemon(currentPokemon, EditedPokemon)];
+                return [4 /*yield*/, Pokemons_1.PokemonService.editPokemon(currentPokemon, EditedPokemon)];
             case 1:
                 id = _b.sent();
                 if (id) {
                     res.status(statusCode_1.default.ACCEPTED).json({ EditedPokemon: EditedPokemon });
                 }
-                throw 'could not edit this pokemon';
+                throw "could not edit this pokemon";
             case 2:
                 err_1 = _b.sent();
                 error = { status: statusCode_1.default.INTERNAL_SERVER_ERROR, message: err_1 };
