@@ -11,14 +11,17 @@ export const deletePokemon = (pokemonName: string) =>  {
 }
 
 
-export const saveNewPokemon = (currentPokemon: IpokemonObject, EditedPokemon: IpokemonObject) => {
+export const saveNewPokemon = async (currentPokemon: IpokemonObject, EditedPokemon: IpokemonObject) => {
+  console.log((JSON.stringify([currentPokemon, EditedPokemon])));
   const requestOptions = {
     method: 'PUT',
-    body: JSON.stringify([ currentPokemon, EditedPokemon])
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify([currentPokemon, EditedPokemon])
   }
   try {
-    return fetch(`${process.env.REACT_APP_API_URL}/pokemon`, requestOptions)
+    return await fetch(`${process.env.REACT_APP_API_URL}/pokemon`, requestOptions)
   } catch(err) {
-    return err
+    console.log(err);
+    return false;
   }
 }

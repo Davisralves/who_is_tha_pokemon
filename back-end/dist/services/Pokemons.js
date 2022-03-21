@@ -79,7 +79,7 @@ exports.PokemonService = {
                 case 0:
                     _a = pokemon, name = _a.name, type1 = _a.type1, weight = _a.weight, height = _a.height, img = _a.img;
                     type2 = pokemon.type2 || "none";
-                    return [4 /*yield*/, Pokemons_1.PokemonsModel.registerNewPokemon(name, type1, type2, weight, height, img)];
+                    return [4 /*yield*/, Pokemons_1.PokemonsModel.registerNewPokemon(name.toLocaleLowerCase(), type1, type2, weight, height, img)];
                 case 1: return [2 /*return*/, _b.sent()];
             }
         });
@@ -108,7 +108,7 @@ exports.PokemonService = {
                     currentName = currentPokemon.name;
                     newName = editedPokemon.name, newType1 = editedPokemon.type1, newWeight = editedPokemon.weight, newHeight = editedPokemon.height;
                     newType2 = currentPokemon.type2 || "none";
-                    return [4 /*yield*/, Pokemons_1.PokemonsModel.editPokemon(currentName, newName, newType1, newType2, newHeight, newWeight)];
+                    return [4 /*yield*/, Pokemons_1.PokemonsModel.editPokemon(currentName.toLowerCase(), newName.toLowerCase(), newType1, newType2, newHeight, newWeight)];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });

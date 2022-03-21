@@ -31,7 +31,7 @@ export const PokemonService = {
 		const { name, type1, weight, height, img } = pokemon as IpokemonObject;
 		const type2 = pokemon.type2 || "none";
 		return await PokemonsModel.registerNewPokemon(
-			name,
+			name.toLocaleLowerCase(),
 			type1,
 			type2,
 			weight,
@@ -61,8 +61,8 @@ export const PokemonService = {
 		} = editedPokemon;
 		const newType2 = currentPokemon.type2 || "none";
 		return await PokemonsModel.editPokemon(
-			currentName,
-			newName,
+			currentName.toLowerCase(),
+			newName.toLowerCase(),
 			newType1,
 			newType2,
 			newHeight,
