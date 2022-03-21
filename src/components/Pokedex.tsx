@@ -106,14 +106,14 @@ export default function Pokedex() {
 				type="text"
 				onChange={(e) => handleChange(e)}
 			/>
-			<button onClick={handleSelect}> Select</button>
-			<button onClick={handleDelete}> Delete</button>
-			<button onClick={handleEdit}> Edit</button>
+			<button className="submitButton" onClick={handleSelect}> Select</button>
+			<button className="submitButton" onClick={handleDelete}> Delete</button>
+			<button className="submitButton" onClick={handleEdit}> Edit</button>
 			{/* <button onClick={handleEdit}> Save</button> */}
-			<select onChange={(e) => setOwnDataBase(e.target.value === "true")}>
+			{/* <select onChange={(e) => setOwnDataBase(e.target.value === "true")}>
 				<option value={"true"}>My Pokemons</option>
 				<option value={"false"}>Search New</option>
-			</select>
+			</select> */}
 			<h5>{message}</h5>
 			<section className="pokedex-main-section">
 				{editTable ? (
