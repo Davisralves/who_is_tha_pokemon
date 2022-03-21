@@ -6,27 +6,23 @@ import userEvent from "@testing-library/user-event";
 
 describe("Testando elemento header", () => {
 	test("Os links do header estão sendo renderizados corretamente", () => {
-		renderWithRouter(<Header />);
+		renderWithRouter(<Header isFetched={true}/>);
 		const links = screen.getAllByRole("link");
-		expect(links).toHaveLength(2);
-		const howToPlay = screen.getByText("Como Jogar");
+		expect(links).toHaveLength(1);
 		const pokedex = screen.getByText("Pokedex");
-		expect(howToPlay).toBeInTheDocument();
 		expect(pokedex).toBeInTheDocument();
 	});
 
-	describe("Os links do Header estão direcionando para as paginas corretas", () => {
-		test('O link "Como jogar" redireciona para pagina correta', () => {
-			renderWithRouter(<App />);
-      const howToPlay = screen.getByText("Como Jogar");
-			userEvent.click(howToPlay);
-			expect(screen.getByRole("heading", "Como jogar")).toBeInTheDocument();
+	describe("O Link do header muda seu texto para loading caso os pokemons estejam sendo requisitados", () => {
+		test('O link mostra mensagem de loading', () => {
+			renderWithRouter(<Header isFetched={false} />);
+			expect(screen.getByText("Loading...")).toBeInTheDocument();
 		});
     test('O link "Pokedex" redireciona para pagina correta', () => {
-			renderWithRouter(<App />);
+			renderWithRouter(<Header isFetched={true} />);
 		  const pokedex = screen.getByText("Pokedex");
 			userEvent.click(pokedex);
-			expect(screen.getByRole("heading", "Pokedex")).toBeInTheDocument();
+			expect(screen.getByText("Pokedex")).toBeInTheDocument();
 		});
 	});
 });

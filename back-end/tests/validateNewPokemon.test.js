@@ -33,7 +33,7 @@ describe('testa "validateNewPokemon" recebendo valores invalidos', () => {
   const nextSpy = sinon.spy()
   const error = {
     status: 400,
-    message: "All values should be a string" };
+    message: "All values should be valid" };
     
 	before(() => {
 		sinon

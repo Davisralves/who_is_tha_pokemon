@@ -10,11 +10,11 @@ export const editPokemon = async (
 ) => {
 	try {
 		const [currentPokemon, EditedPokemon] = req.body as IpokemonObject[];
-		const id = await PokemonService.editPokemon(currentPokemon, EditedPokemon);
-		if (id) {
-			res.status(StatusCode.ACCEPTED).json({ EditedPokemon });
+		const response = await PokemonService.editPokemon(currentPokemon, EditedPokemon);
+		if (response === 0) {
+			return res.status(StatusCode.ACCEPTED).json( EditedPokemon);
 		}
-		throw "could not edit this pokemon";
+		throw "could not edit this pokemon";  
 	} catch (err) {
 		const error = { status: StatusCode.INTERNAL_SERVER_ERROR, message: err };
 		next(error);

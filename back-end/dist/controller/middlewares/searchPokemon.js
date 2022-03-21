@@ -48,13 +48,13 @@ var searchPokemon = function (req, res, next) { return __awaiter(void 0, void 0,
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                name_1 = req.body.name;
+                name_1 = req.params.name;
                 if (!name_1) return [3 /*break*/, 2];
                 return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchedPokemon = _a.sent();
                 if (searchedPokemon) {
-                    next();
+                    return [2 /*return*/, next()];
                 }
                 throw "Pokemon not found";
             case 2: throw "Name must be true";

@@ -71,4 +71,7 @@ const PokemonApi = {
 	},
 };
 
+
+
+
 export default PokemonApi;

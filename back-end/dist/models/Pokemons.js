@@ -143,7 +143,7 @@ exports.PokemonsModel = {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    query = "UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ?, WHERE pokemon_name = ?";
+                    query = "UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ? WHERE pokemon_name = ?";
                     return [4 /*yield*/, connection_1.connection.execute(query, [newName, newType1, newType2, newHeight, newWeight, currentName])];
                 case 1:
                     result = (_a.sent())[0];

@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AllAreString = exports.isString = void 0;
+exports.AllAreNumbers = exports.AllAreString = exports.isNumber = exports.isString = void 0;
 var isString = function (value) { return typeof value === 'string'; };
 exports.isString = isString;
+var isNumber = function (value) { return typeof value === 'number'; };
+exports.isNumber = isNumber;
 var AllAreString = function (value) { return value.every(function (item) { return (0, exports.isString)(item); }); };
 exports.AllAreString = AllAreString;
+var AllAreNumbers = function (value) { return value.every(function (item) { return (0, exports.isNumber)(item); }); };
+exports.AllAreNumbers = AllAreNumbers;

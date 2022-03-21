@@ -14,18 +14,21 @@ import {
 } from "./controller/index";
 const cors = require("cors");
 const app = express();
+const bodyParse = require('body-parser');
 
 app.use(cors());
 
 const { PORT } = process.env;
 
+app.use(bodyParse.json());
+
 app.get("/", requestPokemons);
 
 app.post("/pokemon", validatePokemon, registerNewPokemon);
 
-app.delete("/pokemon", searchPokemon, deletePokemon);
+app.delete("/pokemon/:name", searchPokemon, deletePokemon);
 
-app.put("/pokemon", searchPokemon, validateNewPokemon, editPokemon);
+app.put("/pokemon", validateNewPokemon, editPokemon);
 
 app.put("/restardb", deleteAllPokemons, postFirst151Pokemons )
 

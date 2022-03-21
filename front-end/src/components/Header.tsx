@@ -4,18 +4,20 @@ import { IpokemonObjects } from "../interfaces/Pokemons";
 
 type Props = {
 	pokemons: IpokemonObjects;
+  isFetched: boolean;
 };
 
-export default function Header({ pokemons }: Props) {
+export default function Header({ pokemons, isFetched }: Props) {
 	return (
 		<header>
 			<div className="headerDiv">
-				<Link className="link" to="/HowToPlay">
+				{/* <Link className="link" to="/HowToPlay">
 					Como Jogar
-				</Link>
-				<Link className="link" to="Pokedex" state={{ pokemons }}>
+				</Link> */}
+        { isFetched ?  <Link className="link" to="Pokedex" state={{ pokemons }}>
 					Pokedex
-				</Link>
+				</Link> : <a className="link">Loading...</a>}
+	
 			</div>
 		</header>
 	);

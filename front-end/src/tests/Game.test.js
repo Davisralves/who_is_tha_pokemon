@@ -18,7 +18,7 @@ describe("Testa funcionamento do Game", () => {
   describe('Fazendo teste do funcionamento de um jogo completo com sucesso', () => {
     test('Testando vitoria', () => {
       renderWithRouter(
-        <Game pokemons={pokemonDefaulObject} isFetched={true} />
+        <Game pokemons={pokemonDefaulObject} isFetched={true}  setGameOn={true}/>
       )
       const submitButton = screen.getByRole("button", { value: "Submit" });
       const input = screen.queryByRole("textbox");

@@ -38,15 +38,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PokemonService = void 0;
 var Pokemons_1 = require("../models/Pokemons");
+var convertPokemonsNames = function (pokemons) {
+    return pokemons.map(function (pokemon) {
+        var pokemon_name = pokemon.pokemon_name, type1 = pokemon.type1, pokemon_weight = pokemon.pokemon_weight, pokemon_height = pokemon.pokemon_height, imagem_url = pokemon.imagem_url;
+        return {
+            name: pokemon_name,
+            type1: type1,
+            type2: pokemon.type2,
+            weight: pokemon_weight,
+            height: pokemon_height,
+            img: imagem_url,
+        };
+    });
+};
 exports.PokemonService = {
     requestPokemons: function () { return __awaiter(void 0, void 0, void 0, function () {
-        var allPokemons;
+        var allPokemons, pokemonsWithCorrectNames;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.getAll()];
                 case 1:
                     allPokemons = _a.sent();
-                    return [2 /*return*/, allPokemons];
+                    pokemonsWithCorrectNames = convertPokemonsNames(allPokemons);
+                    return [2 /*return*/, pokemonsWithCorrectNames];
             }
         });
     }); },
@@ -65,7 +79,7 @@ exports.PokemonService = {
                 case 0:
                     _a = pokemon, name = _a.name, type1 = _a.type1, weight = _a.weight, height = _a.height, img = _a.img;
                     type2 = pokemon.type2 || "none";
-                    return [4 /*yield*/, Pokemons_1.PokemonsModel.registerNewPokemon(name, type1, type2, weight, height, img)];
+                    return [4 /*yield*/, Pokemons_1.PokemonsModel.registerNewPokemon(name.toLocaleLowerCase(), type1, type2, weight, height, img)];
                 case 1: return [2 /*return*/, _b.sent()];
             }
         });
@@ -73,7 +87,7 @@ exports.PokemonService = {
     getPokemonByName: function (name) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.getByName(name)];
+                case 0: return [4 /*yield*/, Pokemons_1.PokemonsModel.getByName(name.toLowerCase())];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });
@@ -93,8 +107,8 @@ exports.PokemonService = {
                 case 0:
                     currentName = currentPokemon.name;
                     newName = editedPokemon.name, newType1 = editedPokemon.type1, newWeight = editedPokemon.weight, newHeight = editedPokemon.height;
-                    newType2 = currentPokemon.type2 || 'none';
-                    return [4 /*yield*/, Pokemons_1.PokemonsModel.editPokemon(currentName, newName, newType1, newType2, newHeight, newWeight)];
+                    newType2 = currentPokemon.type2 || "none";
+                    return [4 /*yield*/, Pokemons_1.PokemonsModel.editPokemon(currentName.toLowerCase(), newName.toLowerCase(), newType1, newType2, newHeight, newWeight)];
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });
@@ -106,5 +120,5 @@ exports.PokemonService = {
                 case 1: return [2 /*return*/, _a.sent()];
             }
         });
-    }); }
+    }); },
 };
