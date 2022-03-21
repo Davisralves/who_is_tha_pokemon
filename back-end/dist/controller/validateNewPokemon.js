@@ -49,6 +49,7 @@ var validateNewPokemon = function (req, _res, next) { return __awaiter(void 0, v
         switch (_c.label) {
             case 0:
                 _c.trys.push([0, 2, , 3]);
+                console.log(req.body);
                 _a = req.body, currentPokemon = _a[0], EditedPokemon = _a[1];
                 _b = EditedPokemon, name_1 = _b.name, type1 = _b.type1, weight = _b.weight, height = _b.height, img = _b.img;
                 type2 = req.body.type2 || 'none';
@@ -58,7 +59,7 @@ var validateNewPokemon = function (req, _res, next) { return __awaiter(void 0, v
                 return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchPokemon = _c.sent();
-                if (searchPokemon.length === 0) {
+                if (searchPokemon.length === 0 && currentPokemon.name !== name_1) {
                     return [2 /*return*/, next()];
                 }
                 throw "Name alredy exist";

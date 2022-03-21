@@ -10,6 +10,7 @@ export const validateNewPokemon = async (
 	next: NextFunction
 ) => {
 	try {
+    console.log(req.body);
 		const [currentPokemon, EditedPokemon] = req.body;
 		const { name, type1, weight, height, img } =
 			EditedPokemon as IpokemonObject;
@@ -18,7 +19,7 @@ export const validateNewPokemon = async (
 			throw "All values should be a string";
 		}
 		const searchPokemon = await PokemonService.getPokemonByName(name);
-		if (searchPokemon.length === 0) {
+		if (searchPokemon.length === 0 && currentPokemon.name !== name ) {
 			return next();
 		} throw "Name alredy exist";
 	} catch (err) {

@@ -28,7 +28,7 @@ app.post("/pokemon", validatePokemon, registerNewPokemon);
 
 app.delete("/pokemon/:name", searchPokemon, deletePokemon);
 
-app.put("/pokemon", searchPokemon, validateNewPokemon, editPokemon);
+app.put("/pokemon", validateNewPokemon, editPokemon);
 
 app.put("/restardb", deleteAllPokemons, postFirst151Pokemons )
 

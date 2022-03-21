@@ -41,7 +41,6 @@ export const PokemonService = {
 	},
 
 	getPokemonByName: async (name: string) => {
-    console.log('service');
 		return await PokemonsModel.getByName(name.toLowerCase());
 	},
 

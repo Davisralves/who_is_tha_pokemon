@@ -32,7 +32,6 @@ export const PokemonsModel = {
 	},
 
 	getByName: async (name: string) => {
-    console.log('model', name);
     const query = `SELECT * FROM pokemons WHERE pokemon_name = ?`;
     const [result] = await connection.execute(query, [name]) as RowDataPacket[]
     return result;
@@ -66,6 +65,7 @@ export const PokemonsModel = {
   },
 
   editPokemon: async (currentName: string, newName: string, newType1: string, newType2: string, newHeight: string, newWeight: string) => {
+    console.log('model', currentName, newName)
     const query = `UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ?, WHERE pokemon_name = ?`;
     const [result] = await connection.execute<ResultSetHeader>(query, [newName, newType1, newType2, newHeight, newWeight, currentName]);
     return result.insertId;

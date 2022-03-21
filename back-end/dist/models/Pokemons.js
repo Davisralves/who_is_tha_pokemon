@@ -97,7 +97,6 @@ exports.PokemonsModel = {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log('model', name);
                     query = "SELECT * FROM pokemons WHERE pokemon_name = ?";
                     return [4 /*yield*/, connection_1.connection.execute(query, [name])];
                 case 1:
@@ -144,6 +143,7 @@ exports.PokemonsModel = {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    console.log('model', currentName, newName);
                     query = "UPDATE pokemons SET pokemon_name = ?, type1 = ?, type2 = ?, pokemon_height = ?, pokemon_weight = ?, WHERE pokemon_name = ?";
                     return [4 /*yield*/, connection_1.connection.execute(query, [newName, newType1, newType2, newHeight, newWeight, currentName])];
                 case 1:

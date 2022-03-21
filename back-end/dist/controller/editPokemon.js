@@ -53,7 +53,7 @@ var editPokemon = function (req, res, next) { return __awaiter(void 0, void 0, v
             case 1:
                 id = _b.sent();
                 if (id) {
-                    res.status(statusCode_1.default.ACCEPTED).json({ EditedPokemon: EditedPokemon });
+                    res.status(statusCode_1.default.ACCEPTED).json(EditedPokemon);
                 }
                 throw "could not edit this pokemon";
             case 2:
