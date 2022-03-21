@@ -26,9 +26,11 @@ export default function Pokedex() {
 	const [message, setMessage] = useState("");
 	const [selectedPokemon, selectPokemon] = useState("");
 
-  const getPokemonByName = (): IpokemonObject => {
-    return pokemons.find((pokemon) => pokemon.name.includes(selectedPokemon)) as IpokemonObject;
-  }
+	const getPokemonByName = (): IpokemonObject => {
+		return pokemons.find((pokemon) =>
+			pokemon.name.includes(selectedPokemon)
+		) as IpokemonObject;
+	};
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setInput(event.target.value);
@@ -113,7 +115,17 @@ export default function Pokedex() {
 				<option value={"false"}>Search New</option>
 			</select>
 			<h5>{message}</h5>
-			<section className="pokedex-main-section">{ editTable ? <CreatePokemon pokemon={getPokemonByName()} setEditTable={setEditTable}/> : myPokemons}</section>
+			<section className="pokedex-main-section">
+				{editTable ? (
+					<CreatePokemon
+						pokemon={getPokemonByName()}
+						setEditTable={setEditTable}
+						pokemons={pokemons}
+					/>
+				) : (
+					myPokemons
+				)}
+			</section>
 		</main>
 	);
 }

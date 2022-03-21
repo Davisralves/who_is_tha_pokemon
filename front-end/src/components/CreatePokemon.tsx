@@ -1,4 +1,4 @@
-import { IpokemonObject } from "../interfaces/Pokemons";
+import { IpokemonObject, IpokemonObjects } from "../interfaces/Pokemons";
 import PokemonCard from "./PokemonCard";
 import { useState } from "react";
 import "../css/createPokemon.css";
@@ -6,15 +6,34 @@ import { saveNewPokemon } from "../services/index";
 type props = {
 	pokemon: IpokemonObject;
 	setEditTable: Function;
+	pokemons: IpokemonObjects;
 };
 
-export default function CreatePokemon({ pokemon, setEditTable }: props) {
+export default function CreatePokemon({
+	pokemon,
+	setEditTable,
+	pokemons,
+}: props) {
 	const [nameInput, setNameInput] = useState(pokemon.name);
 	const [height, setHeight] = useState(pokemon.height);
 	const [weight, setWeight] = useState(pokemon.weight);
 	const [type1, setType1] = useState(pokemon.type1);
 	const [type2, setType2] = useState(pokemon.type2 || "None");
 	const [message, setMessage] = useState("");
+
+	const replaceArrayItemByName = (name: string, array: IpokemonObjects) => {
+		const index = array.findIndex(
+			(pokemon: IpokemonObject) => pokemon.name === name
+		);
+		array[index] = {
+			name: nameInput,
+			weight,
+			height,
+			type1,
+			type2,
+			img: pokemon.img,
+		};
+	};
 
 	const savePokemon = async () => {
 		if (nameInput && height && weight && type1 && type2) {
@@ -27,9 +46,11 @@ export default function CreatePokemon({ pokemon, setEditTable }: props) {
 				img: pokemon.img,
 			});
 			if (response) {
-				return setMessage("Pokemon editado com sucesso !");
+				replaceArrayItemByName(pokemon.name, pokemons);
+				setTimeout(() => setEditTable(false), 2000);
+				return setMessage("Pokemon edited with sucess !");
 			}
-			return setMessage("Não foi possivel editar o pokemon");
+			return setMessage("Error ! Pokemons was not edited");
 		}
 		return setMessage("No Input can be empty");
 	};

@@ -53,7 +53,6 @@ var searchPokemon = function (req, res, next) { return __awaiter(void 0, void 0,
                 return [4 /*yield*/, Pokemons_1.PokemonService.getPokemonByName(name_1)];
             case 1:
                 searchedPokemon = _a.sent();
-                console.log('searched pokemons', searchedPokemon);
                 if (searchedPokemon) {
                     return [2 /*return*/, next()];
                 }

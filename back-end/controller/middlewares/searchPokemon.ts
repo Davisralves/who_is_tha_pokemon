@@ -15,7 +15,6 @@ export const searchPokemon = async (
 		const { name } = req.params as pokemonName;
 		if (name) {
 			const searchedPokemon = await PokemonService.getPokemonByName(name);
-      console.log('searched pokemons', searchedPokemon);
 			if (searchedPokemon) {
 				return next();
 			}
