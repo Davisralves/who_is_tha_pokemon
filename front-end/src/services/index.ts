@@ -1,18 +1,4 @@
-// import axios from "axios";
-
-// const api = axios.create({
-//   baseURL: process.env.REACT_APP_API_URL,
-// });
-
-
-
-//   try {
-//     const response = await api.delete('/pokemon', data);
-//     return response.data;
-//   } catch (err) {
-//     return console.log(err);
-//   }
-// }
+import { IpokemonObject } from "../interfaces/Pokemons";
 
 export const deletePokemon = (pokemonName: string) =>  {
   try{
@@ -24,3 +10,15 @@ export const deletePokemon = (pokemonName: string) =>  {
   }
 }
 
+
+export const saveNewPokemon = (currentPokemon: IpokemonObject, EditedPokemon: IpokemonObject) => {
+  const requestOptions = {
+    method: 'PUT',
+    body: JSON.stringify([ currentPokemon, EditedPokemon])
+  }
+  try {
+    return fetch(`${process.env.REACT_APP_API_URL}/pokemon`, requestOptions)
+  } catch(err) {
+    return err
+  }
+}

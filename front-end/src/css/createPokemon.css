@@ -1,0 +1,14 @@
+.EditTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-create-table {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-buttons {
+  margin-top: 1em;
+  margin-right: 2em;
+}
