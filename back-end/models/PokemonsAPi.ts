@@ -14,7 +14,7 @@ const fetchFirst151Pokemons = async () => {
 const getPokemonsDetailsPromises = async (
 	first151Pokemons: Ifirst151Pokemons
 ) => {
-	return await first151Pokemons.results.map(async ({ url }: Ipokemon) => {
+	return first151Pokemons.results.map(async ({ url }: Ipokemon) => {
 		const pokemonsDetails = await fetch(url);
 		return await pokemonsDetails.json();
 	});
@@ -51,12 +51,12 @@ const filterPokemonInfo = (
 	);
 
 export const resolvePromises = async (promisesArray: Promise<any>[]) => {
-  const allPromises = await Promise.allSettled<any[]>(promisesArray);
-  const resolvedPromises = allPromises.filter(
-    (resolvedPromise) => resolvedPromise.status === "fulfilled"
-  );
-  return resolvedPromises;
-}
+	const allPromises = await Promise.allSettled<any[]>(promisesArray);
+	const resolvedPromises = allPromises.filter(
+		(resolvedPromise) => resolvedPromise.status === "fulfilled"
+	);
+	return resolvedPromises;
+};
 
 const PokemonApi = {
 	fetchPokemons: async () => {
@@ -64,14 +64,12 @@ const PokemonApi = {
 		const pokemonDetailsPromises = await getPokemonsDetailsPromises(
 			first151Pokemons
 		);
-    const resolvedPromises = await resolvePromises(pokemonDetailsPromises) as 
-    PromiseFulfilledResult<IpokemonDefaultObject>[];
+		const resolvedPromises = (await resolvePromises(
+			pokemonDetailsPromises
+		)) as PromiseFulfilledResult<IpokemonDefaultObject>[];
 		const pokemonsWithDetails = filterPokemonInfo(resolvedPromises);
 		return pokemonsWithDetails;
 	},
 };
-
-
-
 
 export default PokemonApi;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../css/header.css";
 import { IpokemonObjects } from "../interfaces/Pokemons";
 
-type Props = {
+type Props = {  
 	pokemons: IpokemonObjects;
   isFetched: boolean;
 };
