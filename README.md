@@ -1,4 +1,4 @@
-# who_is_tha_pokemon
+# Who is tha pokemon ?
 
 ## Descrição
 Jogo para descobrir qual foi o pokémon sorteado e projeto Full stack com back-end, front-end e banco de dados integrados.
