@@ -38,7 +38,7 @@ Foi desenvolvido um jogo que sorteia um pokemon e espera que o jogador acerte se
 2. Execute o commando: 
 * ``` docker-compose up ```
     
-### sem docker:
+### Sem docker:
 1. Clone o repositório:
   * ``` git@github.com:Davisralves/loja_virtual.git ```
 2. Entre na pasta do repositório que você acabou de clonar:
