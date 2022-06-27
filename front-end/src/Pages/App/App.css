@@ -29,3 +29,19 @@
   color: #ffcb05;
   text-shadow: 2px 2px 2px #2a75bb;
 }
+
+
+.headerDiv {
+    text-align: center;
+  }
+  
+  .link {
+    margin-right: 1em;
+    font-weight: 700;
+    font-family: din-round,sans-serif;
+    color: #ffcb05;
+  }
+  
+  .link:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }

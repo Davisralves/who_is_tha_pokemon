@@ -1,7 +1,7 @@
-import { IpokemonObject } from "../interfaces/Pokemons";
-import { GameState } from "../helpers/enums";
-import { capitalizeFirstLetter } from "../helpers/Pokemons";
-import "../css/game.css";
+import { IpokemonObject } from "../../interfaces/Pokemons";
+import { GameState } from "../../helpers/enums";
+import { capitalizeFirstLetter } from "../../helpers/Pokemons";
+import "../Game/game.css";
 
 type Props = {
 	GameState: GameState;

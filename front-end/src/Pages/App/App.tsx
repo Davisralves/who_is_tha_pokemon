@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import "./css/header.css";
-import { IpokemonObjects } from "./interfaces/Pokemons";
-import Header from "./components/Header";
-import Game from "./components/Game";
-import pokemonDefaulObject from "./helpers/Pokemons";
+import { IpokemonObjects } from "../../interfaces/Pokemons";
+import Header from "../../components/Header";
+import Game from "../../components/Game";
+import pokemonDefaulObject from "../../helpers/Pokemons";
 
 function App() {
 	const [pokemons, setPokemons] = useState(pokemonDefaulObject);
