@@ -1,9 +1,9 @@
-import { IpokemonObject, IpokemonObjects } from "../interfaces/Pokemons";
+import { IpokemonObject, IpokemonObjects } from "../../interfaces/Pokemons";
 import { useState } from "react";
-import { GameState } from "../helpers/enums";
-import PokemonCard from "./PokemonCard";
-import "../css/gamebody.css";
-import CompareTable from "./CompareTable";
+import { GameState } from "../../helpers/enums";
+import PokemonCard from "../PokemonCard";
+import "./gamebody.css";
+import CompareTable from "../CompareTable";
 
 type Props = {
 	pokemons: IpokemonObjects;

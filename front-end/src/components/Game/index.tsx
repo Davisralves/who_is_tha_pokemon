@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { IpokemonObjects } from "../interfaces/Pokemons";
-import GameBody from "./GameBody";
-import Result from "./Result";
-import { GameState } from "../helpers/enums";
-import pokemonDefaultObject from "../helpers/Pokemons";
+import { IpokemonObjects } from "../../interfaces/Pokemons";
+import GameBody from "../GameBody";
+import Result from "../Result";
+import { GameState } from "../../helpers/enums";
+import pokemonDefaultObject from "../../helpers/Pokemons";
 
 type Props = {
 	pokemons: IpokemonObjects;

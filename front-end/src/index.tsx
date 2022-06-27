@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import App from "./Pages/App/App";
 import reportWebVitals from "./reportWebVitals";
 import { render } from "react-dom";
-import HowToplay from "./components/HowToplay";
-import Pokedex from "./components/Pokedex";
+import HowToplay from "./Pages/HowToPlay";
+import Pokedex from "./Pages/Pokedex/Pokedex";
 
 const rootElement = document.getElementById("root");
 render(

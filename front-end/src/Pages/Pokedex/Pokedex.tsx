@@ -1,11 +1,11 @@
-import { IpokemonObject, IpokemonObjects } from "../interfaces/Pokemons";
-import PokedexHeader from "./PokedexHeader";
-import PokemonCard from "./PokemonCard";
+import { IpokemonObject, IpokemonObjects } from "../../interfaces/Pokemons";
+import PokedexHeader from "../../components/PokedexHeader";
+import PokemonCard from "../../components/PokemonCard";
 import { useLocation } from "react-router-dom";
-import "../css/pokedex.css";
+import "./pokedex.css";
 import { useState } from "react";
-import { deletePokemon } from "../services/index";
-import CreatePokemon from "./CreatePokemon";
+import { deletePokemon } from "../../services/index";
+import CreatePokemon from "../../components/CreatePokemon";
 
 type pokemonLocation = {
 	state: {
