@@ -1,9 +1,10 @@
 import { IpokemonObject, IpokemonObjects } from "../../interfaces/Pokemons";
 import { useState } from "react";
+import React from "react";
 import { GameState } from "../../helpers/enums";
 import PokemonCard from "../PokemonCard";
-import "./gamebody.css";
 import CompareTable from "../CompareTable";
+import "./gamebody.css";
 
 type Props = {
 	pokemons: IpokemonObjects;

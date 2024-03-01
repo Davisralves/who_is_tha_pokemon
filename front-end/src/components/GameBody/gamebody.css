@@ -1,36 +1,38 @@
-.pokemon-table {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* gameBodycss */
 
 .table {
-  margin: 20px;
+	margin: 20px;
+}
+
+.pokemon-table {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .submitButton {
-  margin: 0.5em;
-  padding: 0.5em;
-  border-radius: 10%;
-  border-width: 0 0 3px;
-  background-color: #ffcb05;
-  color: #2a75bb;
-  font-family: din-round,sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  text-align: center;
-  transition: filter .2s;
+	margin: 0.5em;
+	padding: 0.5em;
+	border-radius: 10%;
+	border-width: 0 0 3px;
+	background-color: #ffcb05;
+	color: #2a75bb;
+	font-family: din-round, sans-serif;
+	font-size: 1em;
+	font-weight: 700;
+	text-align: center;
+	transition: filter 0.2s;
 }
 
 .submitButton:hover:not(:disabled) {
-  filter: brightness(1.1);
+	filter: brightness(1.1);
 }
 
 .submit-input {
-  background-color: aliceblue;
-  margin-right: 1em;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: din-round,sans-serif;
-  border-radius: 10%;
+	background-color: aliceblue;
+	margin-right: 1em;
+	font-size: 1em;
+	font-weight: 400;
+	font-family: din-round, sans-serif;
+	border-radius: 10%;
 }

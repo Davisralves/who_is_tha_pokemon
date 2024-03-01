@@ -1,0 +1,17 @@
+services:
+  back-end:
+    depends_on:
+      - db
+    build: .
+    ports:
+      - "8000:8000"
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: pokemon_database
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql-scripts:/docker-entrypoint-initdb.d

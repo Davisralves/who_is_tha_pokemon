@@ -11,5 +11,5 @@ exports.connection = promise_1.default.createPool({
     host: HOST,
     user: USERNAME,
     password: PASSWORD,
-    database: DATA_BASE
+    database: DATA_BASE,
 });

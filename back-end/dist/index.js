@@ -11,7 +11,7 @@ var searchPokemon_1 = require("./controller/middlewares/searchPokemon");
 var index_1 = require("./controller/index");
 var cors = require("cors");
 var app = (0, express_1.default)();
-var bodyParse = require('body-parser');
+var bodyParse = require("body-parser");
 app.use(cors());
 var PORT = process.env.PORT;
 app.use(bodyParse.json());
@@ -23,4 +23,5 @@ app.put("/restardb", index_1.deleteAllPokemons, index_1.postFirst151Pokemons);
 app.use(errorHandler_1.default);
 app.listen(PORT, function () {
     console.log("Server is running at ".concat(PORT || 8000));
+    console.log("test");
 });

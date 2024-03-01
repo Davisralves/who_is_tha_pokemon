@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { IpokemonObjects } from "../../interfaces/Pokemons";
 import Header from "../../components/Header";
@@ -13,7 +13,8 @@ function App() {
 	useEffect(() => {
 		const request = async () => {
 			try {
-				const response = await fetch(process.env.REACT_APP_API_URL as string);
+				console.log(process.env.REACT_APP_API_URL);
+				const response = await fetch(process.env.REACT_APP_API_URL);
 				const pokemons = (await response.json()) as IpokemonObjects;
 				setPokemons(pokemons);
 				setFetched(true);
@@ -33,7 +34,6 @@ function App() {
 			Start
 		</button>
 	);
-
 	return (
 		<div className="App">
 			<h1 className="title">Who is that Pokemon ?</h1>

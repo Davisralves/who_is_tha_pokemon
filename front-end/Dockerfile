@@ -1,7 +1,8 @@
 FROM node:alpine
 WORKDIR /front-end
-COPY package*.json ./
-RUN npm install
+COPY package.json ./
 COPY . .
-CMD ["npm", "start"]
+RUN npm install
+RUN npm install -g serve
+CMD ["npm", "run", "production"]
 EXPOSE 3000

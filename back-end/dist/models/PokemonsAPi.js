@@ -52,24 +52,21 @@ var fetchFirst151Pokemons = function () { return __awaiter(void 0, void 0, void 
 }); };
 var getPokemonsDetailsPromises = function (first151Pokemons) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, first151Pokemons.results.map(function (_a) {
-                    var url = _a.url;
-                    return __awaiter(void 0, void 0, void 0, function () {
-                        var pokemonsDetails;
-                        return __generator(this, function (_b) {
-                            switch (_b.label) {
-                                case 0: return [4 /*yield*/, fetch(url)];
-                                case 1:
-                                    pokemonsDetails = _b.sent();
-                                    return [4 /*yield*/, pokemonsDetails.json()];
-                                case 2: return [2 /*return*/, _b.sent()];
-                            }
-                        });
+        return [2 /*return*/, first151Pokemons.results.map(function (_a) {
+                var url = _a.url;
+                return __awaiter(void 0, void 0, void 0, function () {
+                    var pokemonsDetails;
+                    return __generator(this, function (_b) {
+                        switch (_b.label) {
+                            case 0: return [4 /*yield*/, fetch(url)];
+                            case 1:
+                                pokemonsDetails = _b.sent();
+                                return [4 /*yield*/, pokemonsDetails.json()];
+                            case 2: return [2 /*return*/, _b.sent()];
+                        }
                     });
-                })];
-            case 1: return [2 /*return*/, _a.sent()];
-        }
+                });
+            })];
     });
 }); };
 var filterPokemonInfo = function (pokemonsInfo) {
@@ -114,7 +111,7 @@ var PokemonApi = {
                     pokemonDetailsPromises = _a.sent();
                     return [4 /*yield*/, (0, exports.resolvePromises)(pokemonDetailsPromises)];
                 case 3:
-                    resolvedPromises = _a.sent();
+                    resolvedPromises = (_a.sent());
                     pokemonsWithDetails = filterPokemonInfo(resolvedPromises);
                     return [2 /*return*/, pokemonsWithDetails];
             }

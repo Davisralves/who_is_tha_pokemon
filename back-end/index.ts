@@ -9,12 +9,12 @@ import {
 	requestPokemons,
 	validateNewPokemon,
 	editPokemon,
-  deleteAllPokemons,
-  postFirst151Pokemons,
+	deleteAllPokemons,
+	postFirst151Pokemons,
 } from "./controller/index";
 const cors = require("cors");
 const app = express();
-const bodyParse = require('body-parser');
+const bodyParse = require("body-parser");
 
 app.use(cors());
 
@@ -30,7 +30,7 @@ app.delete("/pokemon/:name", searchPokemon, deletePokemon);
 
 app.put("/pokemon", validateNewPokemon, editPokemon);
 
-app.put("/restardb", deleteAllPokemons, postFirst151Pokemons )
+app.put("/restardb", deleteAllPokemons, postFirst151Pokemons);
 
 app.use(errorHandler);
 

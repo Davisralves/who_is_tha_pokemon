@@ -4,6 +4,7 @@ import GameBody from "../GameBody";
 import Result from "../Result";
 import { GameState } from "../../helpers/enums";
 import pokemonDefaultObject from "../../helpers/Pokemons";
+import "./game.css";
 
 type Props = {
 	pokemons: IpokemonObjects;

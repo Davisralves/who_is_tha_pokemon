@@ -1,0 +1,42 @@
+services:
+  front-end:
+    build: ./front-end
+    container_name: front_end
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    networks:
+      - front-net
+      - back-net
+    ports:
+      - 3000:3000
+    depends_on:
+      - "back-end"
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: pokemon_database
+      MYSQL_ROOT_PASSWORD: 1234
+    networks:
+      - db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./back-end/sql-scripts:/docker-entrypoint-initdb.d
+
+  back-end:
+    build: ./back-end
+    container_name: back_end_and_data_base
+    networks:
+      - back-net
+      - db
+    ports:
+      - 8000:8000
+    depends_on:
+      - "db"
+
+networks:
+  front-net: {}
+  back-net: {}
+  db: {}
