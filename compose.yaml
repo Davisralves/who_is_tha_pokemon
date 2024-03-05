@@ -8,7 +8,7 @@ services:
       - front-net
       - back-net
     ports:
-      - 3000:3000
+      - ${PORT}:3000
     depends_on:
       - "back-end"
 
@@ -21,7 +21,7 @@ services:
     networks:
       - db
     ports:
-      - "3306:3306"
+      - "${PORT}:3306"
     volumes:
       - ./back-end/sql-scripts:/docker-entrypoint-initdb.d
 
@@ -32,7 +32,7 @@ services:
       - back-net
       - db
     ports:
-      - 8000:8000
+      - ${PORT}:8000
     depends_on:
       - "db"
 
