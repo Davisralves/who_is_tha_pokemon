@@ -1,14 +1,9 @@
 # Who is tha pokemon ?
 
-## Descrição
-Jogo para descobrir qual foi o pokémon sorteado e projeto Full stack com back-end, front-end e banco de dados integrados.
+## Description
+Game to discover who Pokémon was drawn and Full stack project with integrated back-end, front-end and database.
 
-
-## Link
- [Clique Aqui](https://front-end-pokemon.herokuapp.com/)
-
-
-## Tecnologias Utilizadas
+## Utilized tecnologies
  * React.ts
  * React-router
  * React-testing-library
@@ -23,37 +18,19 @@ Jogo para descobrir qual foi o pokémon sorteado e projeto Full stack com back-e
  * Cors
  * Dotenv
  * Mysql
- * Heroku
  * Pretier
 
 
-## O que foi desenvolvido
-Foi desenvolvido um jogo que sorteia um pokemon e espera que o jogador acerte seu nome baseado no peso, altura e tipo do pokemon. Também existe uma pokedex onde é possivel conferir todos os pokemons, editar, excluir e adicionar novos. Utilizei como base a [poke_api](https://pokeapi.co/) e apartir dela criei um banco de dados mysql e uma api CRUD para armazenar os pokemons e ser a ponte entre o front-end, banco de dados e api dos pokemons.
+## What was developed ?
+Was developed a game that draws a pokemon and expects the player to guess its name based on the pokemon's weight, height and type. There is also a pokedex where you can check all pokemons, edit, delete and add new ones. I used [poke_api](https://pokeapi.co/) as a base and from it then I create a mysql database, a CRUD API to store the pokemons and be the bridge between applications such as front-end, database and api of the pokemons using docker.
 
-## Intruções para instalar e executar o projeto.
+## Instructions to install and run the project.
 
-### Com Docker 🐟:
-1. Clone o repositório:
-* ``` git@github.com:Davisralves/who_is_tha_pokemon.git ```
+### With Docker 🐟:
+1. Clone the repository:
+* ```git clone git@github.com:Davisralves/who_is_tha_pokemon.git ```
 2. Execute o commando: 
 * ``` docker-compose up ```
     
-### Sem docker:
-1. Clone o repositório:
-  * ``` git@github.com:Davisralves/loja_virtual.git ```
-2. Entre na pasta do repositório que você acabou de clonar:
- * ``` cd who_is_tha_pokemon ```
-
-3. Instale as dependencias do front-end
-  * ``` cd front-end ``` 
-  * ``` npm install ```
-  * ``` npm start  (Uma nova pagina deve abrir no seu navegador com a aplicação funcionando) ```
-
-4. Instale as dependencias do back-end
-  * ``` cd back-end ``` 
-  * ``` npm install ```
-  * ``` npm start  (Seu back-end deve estar rodando na porta 8000) ```
-
-
 ## Status: 
-Em andamento.
+Finished.
