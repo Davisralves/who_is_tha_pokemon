@@ -1,7 +1,7 @@
 # Who is tha pokemon ?
 
 ## Description
-Game to discover who Pokémon was drawn and Full stack project with integrated back-end, front-end and database.
+Game to discover who Pokémon was drawn. A Full stack project with integrated back-end, front-end and database.
 
 ## Utilized tecnologies
  * React.ts
