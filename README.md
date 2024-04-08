@@ -30,7 +30,7 @@ Was developed a game that draws a pokemon and expects the player to guess it's n
 1. Clone the repository:
 * ```git clone git@github.com:Davisralves/who_is_tha_pokemon.git ```
 2. Execute o commando: 
-* ``` docker-compose up ```
+* ``` docker compose up ```
     
 ## Status: 
 Finished.
