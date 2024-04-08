@@ -13,9 +13,14 @@ function App() {
 	useEffect(() => {
 		const request = async () => {
 			try {
-				console.log(process.env.REACT_APP_API_URL);
 				const response = await fetch(process.env.REACT_APP_API_URL);
 				const pokemons = (await response.json()) as IpokemonObjects;
+				if (pokemons.length === 0) {
+					await fetch(`${process.env.REACT_APP_API_URL}/restardb`, {
+						method: "PUT",
+					});
+					request();
+				}
 				setPokemons(pokemons);
 				setFetched(true);
 			} catch (err) {

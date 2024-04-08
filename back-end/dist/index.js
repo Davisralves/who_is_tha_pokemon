@@ -23,5 +23,4 @@ app.put("/restardb", index_1.deleteAllPokemons, index_1.postFirst151Pokemons);
 app.use(errorHandler_1.default);
 app.listen(PORT, function () {
     console.log("Server is running at ".concat(PORT || 8000));
-    console.log("test");
 });

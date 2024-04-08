@@ -2,8 +2,8 @@ import { IpokemonObject, IpokemonObjects } from "../../interfaces/Pokemons";
 import PokedexHeader from "../../components/PokedexHeader";
 import PokemonCard from "../../components/PokemonCard";
 import { useLocation } from "react-router-dom";
+import { ChangeEvent, useState } from "react";
 import "./pokedex.css";
-import { useState } from "react";
 import { deletePokemon } from "../../services/index";
 import CreatePokemon from "../../components/CreatePokemon";
 
@@ -32,7 +32,7 @@ export default function Pokedex() {
 		) as IpokemonObject;
 	};
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setInput(event.target.value);
 	};
 

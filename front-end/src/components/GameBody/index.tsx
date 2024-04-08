@@ -1,6 +1,5 @@
 import { IpokemonObject, IpokemonObjects } from "../../interfaces/Pokemons";
-import { useState } from "react";
-import React from "react";
+import { useState, ChangeEvent, MouseEvent } from "react";
 import { GameState } from "../../helpers/enums";
 import PokemonCard from "../PokemonCard";
 import CompareTable from "../CompareTable";
@@ -19,7 +18,7 @@ export default function GameBody({ pokemons, sortedPokemon, endGame }: Props) {
 	const [tryedPokemon, setTryedPokemon] = useState(pokemons[0]);
 
 	const handleSubmit = (
-		event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+		event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
 	) => {
 		event.preventDefault();
 		setTryedPokemon(
@@ -46,7 +45,7 @@ export default function GameBody({ pokemons, sortedPokemon, endGame }: Props) {
 		}
 		return false;
 	};
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(event.target.value);
 		checkTypedPokemon();
 	};
