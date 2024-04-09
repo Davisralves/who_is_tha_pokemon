@@ -38,4 +38,4 @@ Was developed a game that draws a pokemon and expects the player to guess its na
 Finished.
 
 ## Post:
-[Linkedin post with video]([https://www.linkedin.com/feed/update/urn:li:activity:7183058927096348673)
+[Linkedin post with video](https://www.linkedin.com/feed/update/urn:li:activity:7183058927096348673)
